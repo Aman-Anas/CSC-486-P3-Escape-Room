@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d2saw7v5mjigw"]
+
+[ext_resource type="Script" uid="uid://bqea5ljgus8xv" path="res://Scenes/UI/Inventory.cs" id="1_8q74i"]
+
+[node name="Control" type="CanvasLayer" unique_id=344925783]
+script = ExtResource("1_8q74i")
+
+[node name="Control" type="Control" parent="." unique_id=32589082]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=835345424]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Background" type="PanelContainer" parent="Control/HBoxContainer" unique_id=826734380]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer" unique_id=393553277]
+layout_mode = 2

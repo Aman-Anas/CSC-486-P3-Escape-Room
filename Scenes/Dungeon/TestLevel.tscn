@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dbi28u8ytw1e2" path="res://Scenes/Entities/Bob.tscn" id="6_0lhxs"]
 [ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/BobTrigger.tscn" id="8_gp5al"]
 [ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/NewBurger.tscn" id="8_silom"]
+[ext_resource type="PackedScene" uid="uid://78mq6el7k5ox" path="res://Scenes/keys.tscn" id="9_silom"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -134,3 +135,6 @@ Dialogue = "That's odd."
 
 [node name="NewBurger" parent="." unique_id=941241180 instance=ExtResource("8_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.196899, 0.4799062, -0.5509244)
+
+[node name="Node3D" parent="." unique_id=293070295 instance=ExtResource("9_silom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69186306, 0)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://78mq6el7k5ox"]
+
+[ext_resource type="Script" uid="uid://b6l7wfgx8kv3r" path="res://Scenes/Keys.cs" id="1_gd55d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gd55d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61kc5"]
+albedo_color = Color(1, 1, 0.06666667, 1)
+metallic = 0.84
+roughness = 0.49
+
+[sub_resource type="BoxMesh" id="BoxMesh_j2x1u"]
+material = SubResource("StandardMaterial3D_61kc5")
+
+[node name="Key" type="Area3D" unique_id=293070295]
+script = ExtResource("1_gd55d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1551486259]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_gd55d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1600714424]
+mesh = SubResource("BoxMesh_j2x1u")
