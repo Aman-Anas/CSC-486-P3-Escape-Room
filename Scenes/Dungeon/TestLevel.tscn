@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/BobTrigger.tscn" id="8_gp5al"]
 [ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/NewBurger.tscn" id="8_silom"]
 [ext_resource type="PackedScene" uid="uid://78mq6el7k5ox" path="res://Scenes/keys.tscn" id="9_silom"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/Door.tscn" id="10_gx66q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -138,3 +139,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.196899, 0.4799062, -0.55092
 
 [node name="Node3D" parent="." unique_id=293070295 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69186306, 0)
+
+[node name="Door" parent="." unique_id=1264572986 instance=ExtResource("10_gx66q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5311975, 1.4568353, -3.8903394)

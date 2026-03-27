@@ -4,6 +4,9 @@ using System;
 
 public partial class Keys : Area3D
 {
+    [Export]
+    public string KeyId { get; set; } = "gold_key"; // map to level-specific id
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -23,7 +26,7 @@ public partial class Keys : Area3D
         if (body is Farmer)
         {
             // Add the key to inventory (using its node name as ID)
-            Game.Manager.Instance.Data.CollectedKeys.Add(Name);
+            Game.Manager.Instance.Data.CollectedKeys.Add(KeyId);
             GD.Print($"Picked up key: {Name}");  // Debug log (remove in production)
             GD.Print($"Picked up key: {Game.Manager.Instance.Data.CollectedKeys[0]}");  // Debug log (remove in production)
             
