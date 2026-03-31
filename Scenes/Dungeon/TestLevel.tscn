@@ -9,12 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/old/BobTrigger.tscn" id="8_gp5al"]
 [ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/old/NewBurger.tscn" id="8_silom"]
 [ext_resource type="PackedScene" uid="uid://78mq6el7k5ox" path="res://Scenes/Entities/keys.tscn" id="9_silom"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/old/Door.tscn" id="10_gx66q"]
 [ext_resource type="PackedScene" uid="uid://bs0xy5r7f2xr0" path="res://Scenes/Entities/KeyDoor.tscn" id="11_qp46p"]
 [ext_resource type="Resource" uid="uid://d2xjyf2186hl" path="res://Scenes/Entities/Door_Red.tres" id="13_4mnl4"]
 [ext_resource type="Resource" uid="uid://6r71jlg2ewv" path="res://Scenes/Entities/Door_Blue.tres" id="14_j03xh"]
 [ext_resource type="Resource" uid="uid://dw5w4414b4lht" path="res://Scenes/Entities/Door_Green.tres" id="15_rsp6l"]
 [ext_resource type="Resource" uid="uid://heg7hwg6bpjj" path="res://Scenes/Entities/Door_Purple.tres" id="16_hffpc"]
+[ext_resource type="PackedScene" uid="uid://clps5spybgwyb" path="res://Scenes/Entities/Statue.tscn" id="16_rsp6l"]
+[ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="17_hffpc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -142,9 +143,6 @@ Dialogue = "That's odd."
 [node name="NewBurger" parent="." unique_id=941241180 instance=ExtResource("8_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.196899, 0.4799062, -0.5509244)
 
-[node name="Door" parent="." unique_id=1264572986 instance=ExtResource("10_gx66q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5311975, 1.4568353, -3.8903394)
-
 [node name="KeyDoor" parent="." unique_id=962990637 instance=ExtResource("11_qp46p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.071604, -0.082499504, 0.108463764)
 Info = ExtResource("15_rsp6l")
@@ -176,3 +174,9 @@ Info = ExtResource("16_hffpc")
 [node name="Key4" parent="." unique_id=1896419628 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.274021, -0.082499504, 3.758534)
 Info = ExtResource("13_4mnl4")
+
+[node name="Statue" parent="." unique_id=115633466 instance=ExtResource("16_rsp6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29560494, 0.60683477, 0.4770483)
+
+[node name="Pedestal" parent="." unique_id=1940833412 instance=ExtResource("17_hffpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.502414, 0.40683454, -3.6389093)
