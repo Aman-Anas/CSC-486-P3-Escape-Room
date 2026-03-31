@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://7obs36osyorc"]
 
+[ext_resource type="Script" uid="uid://du5obnr8donwf" path="res://Scenes/UI/InventoryNewNew.cs" id="1_3lp4i"]
 [ext_resource type="PackedScene" uid="uid://dem5wghouhf3r" path="res://Scenes/UI/HotbarSlot.tscn" id="1_vjaut"]
 
 [node name="InventoryNewNew" type="Control" unique_id=991110533]
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
+script = ExtResource("1_3lp4i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=723051830]
 layout_mode = 1
