@@ -2,14 +2,16 @@
 
 [ext_resource type="Material" uid="uid://cfls41uebm78j" path="res://assets/mats/test_material.tres" id="1_57efk"]
 [ext_resource type="Texture2D" uid="uid://ddjspd2d5bp03" path="res://addons/kenney_prototype_textures/light/texture_06.png" id="2_3yyu3"]
-[ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/Farmer.tscn" id="2_x28rk"]
+[ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/old/Farmer.tscn" id="2_x28rk"]
 [ext_resource type="Script" uid="uid://ur22d8wmd12u" path="res://Game/Entities/GravityArea.cs" id="3_3yyu3"]
 [ext_resource type="Texture2D" uid="uid://dxc8av0a5bgvm" path="res://addons/kenney_prototype_textures/dark/texture_12.png" id="3_8txr7"]
-[ext_resource type="PackedScene" uid="uid://dbi28u8ytw1e2" path="res://Scenes/Entities/Bob.tscn" id="6_0lhxs"]
-[ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/BobTrigger.tscn" id="8_gp5al"]
-[ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/NewBurger.tscn" id="8_silom"]
-[ext_resource type="PackedScene" uid="uid://78mq6el7k5ox" path="res://Scenes/keys.tscn" id="9_silom"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/Door.tscn" id="10_gx66q"]
+[ext_resource type="PackedScene" uid="uid://dbi28u8ytw1e2" path="res://Scenes/Entities/old/Bob.tscn" id="6_0lhxs"]
+[ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/old/BobTrigger.tscn" id="8_gp5al"]
+[ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/old/NewBurger.tscn" id="8_silom"]
+[ext_resource type="PackedScene" uid="uid://78mq6el7k5ox" path="res://Scenes/Entities/keys.tscn" id="9_silom"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/old/Door.tscn" id="10_gx66q"]
+[ext_resource type="PackedScene" uid="uid://bs0xy5r7f2xr0" path="res://Scenes/Entities/KeyDoor.tscn" id="11_qp46p"]
+[ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="12_8kud5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -39,6 +41,23 @@ uv1_triplanar = true
 size = Vector3(13.174988, 3.8506103, 2.4559937)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x28rk"]
+
+[sub_resource type="Resource" id="Resource_fbpn4"]
+script = ExtResource("12_8kud5")
+DoorColor = Color(0.22137988, 0.6241661, 0.38399094, 1)
+LockID = "blue"
+
+[sub_resource type="Resource" id="Resource_8kud5"]
+script = ExtResource("12_8kud5")
+DoorColor = Color(0.63037884, 0.3438601, 1, 1)
+LockID = "purple"
+metadata/_custom_type_script = "uid://fhsi0lj0y370"
+
+[sub_resource type="Resource" id="Resource_4mnl4"]
+script = ExtResource("12_8kud5")
+DoorColor = Color(4.3317675e-07, 0.62743896, 0.49284625, 1)
+LockID = "blue"
+metadata/_custom_type_script = "uid://fhsi0lj0y370"
 
 [node name="Level1" type="Node3D" unique_id=1866122410]
 
@@ -139,6 +158,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.196899, 0.4799062, -0.55092
 
 [node name="Node3D" parent="." unique_id=293070295 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69186306, 0)
+Info = SubResource("Resource_fbpn4")
 
 [node name="Door" parent="." unique_id=1264572986 instance=ExtResource("10_gx66q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5311975, 1.4568353, -3.8903394)
+
+[node name="KeyDoor" parent="." unique_id=962990637 instance=ExtResource("11_qp46p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.071604, -0.082499504, 0.108463764)
+
+[node name="KeyDoor2" parent="." unique_id=2095631940 instance=ExtResource("11_qp46p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.040295, -0.082499504, 0.108463764)
+Info = SubResource("Resource_8kud5")
+
+[node name="KeyDoor3" parent="." unique_id=381732427 instance=ExtResource("11_qp46p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.980001, -0.082499266, 2.277262)
+Info = SubResource("Resource_4mnl4")

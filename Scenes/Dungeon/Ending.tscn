@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://w0llp6n114k4" path="res://Game/Entities/Ending.cs" id="1_w3ccq"]
 [ext_resource type="PackedScene" uid="uid://dk30fk7rndok4" path="res://assets/batch_exports/dungeonwalls/Cylinder.gltf" id="1_ycoic"]
-[ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/NewBurger.tscn" id="2_o6nf3"]
+[ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/old/NewBurger.tscn" id="2_o6nf3"]
 [ext_resource type="Material" uid="uid://buvera7aogvu6" path="res://assets/batch_exports/dungeonwalls/metal.tres" id="2_w3ccq"]
-[ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/Farmer.tscn" id="4_3hd3m"]
+[ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/old/Farmer.tscn" id="4_3hd3m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fvwfc"]
 font_size = 26

@@ -12,7 +12,7 @@ namespace Game.Entities;
 public partial class Farmer : RigidBody3D
 {
     [Export]
-    Label burgersEatenCounter = null!;
+    Label useKeyLabel = null!;
 
     [Export]
     Label gameTimer = null!;
@@ -291,6 +291,33 @@ public partial class Farmer : RigidBody3D
             }
         }
 
+        if (
+            grappleCast.IsColliding()
+            && IsInstanceValid(grappleCast.GetCollider())
+            && grappleCast.GetCollider() is AnimatableBody3D colObject
+            && colObject.Owner is KeyDoor door
+        )
+        {
+            useKeyLabel.Show();
+            if (Manager.Instance.Data.CollectedKeys.Contains(door.Info.LockID))
+            {
+                useKeyLabel.Text = $"[e] to open door with {door.Info.LockID} key";
+                if (Input.IsActionJustPressed(GameActions.UseDoor))
+                {
+                    door.Open(Manager.Instance.Data.CollectedKeys);
+                }
+            }
+            else
+            {
+                useKeyLabel.Text = $"You need a {door.Info.LockID} key to open this door.";
+            }
+            useKeyLabel.LabelSettings.FontColor = door.Info.DoorColor;
+        }
+        else
+        {
+            useKeyLabel.Hide();
+        }
+
         if (currentGrappleNode != null)
         {
             var targetPoint = (currentGrappleNode.ToGlobal(currentGrapplePos));
@@ -385,7 +412,7 @@ public partial class Farmer : RigidBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        burgersEatenCounter.Text = $"Burgers eaten: {Manager.Instance.Data.BurgersEaten}";
+        // burgersEatenCounter.Text = $"Burgers eaten: {Manager.Instance.Data.BurgersEaten}";
 
         double time = (Time.GetTicksMsec() - Manager.Instance.Data.TimeGameStarted) / 1000.0;
         gameTimer.Text = $"{time:F2}s";

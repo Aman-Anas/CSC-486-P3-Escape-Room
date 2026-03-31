@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cxphvpj3hiwcl"]
 
 [ext_resource type="Texture2D" uid="uid://bigwnn62erlmu" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="2_idj7w"]
-[ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/Farmer.tscn" id="3_kln2b"]
+[ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/old/Farmer.tscn" id="3_kln2b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_idj7w"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
