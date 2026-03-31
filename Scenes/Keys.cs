@@ -16,6 +16,9 @@ public partial class Keys : Area3D
 
     [Export]
     StringName spinAnim = "spin";
+    
+    [Export]
+    Item resource = null!;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -32,8 +35,9 @@ public partial class Keys : Area3D
         {
             // Add the key to inventory (using its ID)
             Game.Manager.Instance.Data.CollectedKeys.Add(Info.LockID);
+            Game.Manager.Instance.inventory.AddItem(resource);
             GD.Print($"Picked up key: {Info.LockID}");
-            GD.Print($"Picked up key: {Game.Manager.Instance.Data.CollectedKeys}");
+            //GD.Print($"Picked up key: {Game.Manager.Instance.Data.CollectedKeys}");
 
             // Despawn the key
             QueueFree();
