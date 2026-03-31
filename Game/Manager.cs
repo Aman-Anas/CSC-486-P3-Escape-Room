@@ -19,6 +19,8 @@ public partial class Manager : Node
     PackedScene titleScene = null!;
 
     public GameData Data { get; set; } = new();
+    
+    public Inventory inventory { get; private set; } = new();
 
     public Manager()
     {
