@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://7obs36osyorc"]
+
+[ext_resource type="PackedScene" uid="uid://dem5wghouhf3r" path="res://Scenes/UI/HotbarSlot.tscn" id="1_vjaut"]
+
+[node name="InventoryNewNew" type="Control" unique_id=991110533]
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=723051830]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -50.0
+offset_right = 380.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HotbarSlot" parent="HBoxContainer" unique_id=1864591955 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot2" parent="HBoxContainer" unique_id=55907787 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot3" parent="HBoxContainer" unique_id=452101180 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot4" parent="HBoxContainer" unique_id=1121915292 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot5" parent="HBoxContainer" unique_id=110915774 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot6" parent="HBoxContainer" unique_id=1811040023 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot7" parent="HBoxContainer" unique_id=1661465732 instance=ExtResource("1_vjaut")]
+layout_mode = 2
