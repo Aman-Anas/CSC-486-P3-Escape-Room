@@ -12,10 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://bs0xy5r7f2xr0" path="res://Scenes/Entities/KeyDoor.tscn" id="11_qp46p"]
 [ext_resource type="Resource" uid="uid://d2xjyf2186hl" path="res://Scenes/Entities/Door_Red.tres" id="13_4mnl4"]
 [ext_resource type="Resource" uid="uid://6r71jlg2ewv" path="res://Scenes/Entities/Door_Blue.tres" id="14_j03xh"]
+[ext_resource type="Resource" uid="uid://d0vkbd177fmbo" path="res://Game/Resources/blue_key.tres" id="15_b6y0x"]
 [ext_resource type="Resource" uid="uid://dw5w4414b4lht" path="res://Scenes/Entities/Door_Green.tres" id="15_rsp6l"]
+[ext_resource type="Resource" uid="uid://dhtw64rhici10" path="res://Game/Resources/green_key.tres" id="16_cj7u2"]
 [ext_resource type="Resource" uid="uid://heg7hwg6bpjj" path="res://Scenes/Entities/Door_Purple.tres" id="16_hffpc"]
 [ext_resource type="PackedScene" uid="uid://clps5spybgwyb" path="res://Scenes/Entities/Statue.tscn" id="16_rsp6l"]
+[ext_resource type="Resource" uid="uid://ckcof73dqwgti" path="res://Game/Resources/purple_key.tres" id="17_g2t2b"]
 [ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="17_hffpc"]
+[ext_resource type="Resource" uid="uid://ca38akcpchrlo" path="res://Game/Resources/red_key.tres" id="18_7sq4q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -159,21 +163,25 @@ Info = ExtResource("16_hffpc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.980001, -0.082499266, 2.277262)
 Info = ExtResource("14_j03xh")
 
-[node name="Key" parent="." unique_id=293070295 instance=ExtResource("9_silom")]
+[node name="blue key" parent="." unique_id=293070295 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3345304, -0.082499504, 3.758534)
 Info = ExtResource("14_j03xh")
+resource = ExtResource("15_b6y0x")
 
-[node name="Key2" parent="." unique_id=960822967 instance=ExtResource("9_silom")]
+[node name="green key" parent="." unique_id=960822967 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122995615, -0.082499504, 3.758534)
 Info = ExtResource("15_rsp6l")
+resource = ExtResource("16_cj7u2")
 
-[node name="Key3" parent="." unique_id=1242750559 instance=ExtResource("9_silom")]
+[node name="purple key" parent="." unique_id=1242750559 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9357352, -0.082499504, 3.758534)
 Info = ExtResource("16_hffpc")
+resource = ExtResource("17_g2t2b")
 
-[node name="Key4" parent="." unique_id=1896419628 instance=ExtResource("9_silom")]
+[node name="red key" parent="." unique_id=1896419628 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.274021, -0.082499504, 3.758534)
 Info = ExtResource("13_4mnl4")
+resource = ExtResource("18_7sq4q")
 
 [node name="Statue" parent="." unique_id=115633466 instance=ExtResource("16_rsp6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29560494, 0.60683477, 0.4770483)
