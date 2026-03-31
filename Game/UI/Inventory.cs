@@ -21,11 +21,20 @@ public partial class Inventory : Control
     public void AddItem(Item item)
     {
         if (item == null) return;
-        if (_lookup.TryGetValue(item, out var inventoryItem)) inventoryItem.count++;
+        if (_lookup.TryGetValue(item, out var inventoryItem)) {
+            inventoryItem.count++;
+            
+            // update count in hotbar
+            // with keys and statues, this probably won't ever be called
+            // since there's only ever a single key or statue of a type, i think
+        }
         else {
             var newItem = new InventoryItem { count = 1, index = _contents.Count };
             _contents.Add(newItem);
             _lookup[item] = newItem;
+            
+            // add icon to hotbar
+            // TODO
         }
         
         GD.Print($"[Inventory] - Picked up: {item.Name}");

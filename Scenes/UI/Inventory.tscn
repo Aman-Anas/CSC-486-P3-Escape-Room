@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://7obs36osyorc"]
 
-[ext_resource type="Script" uid="uid://du5obnr8donwf" path="res://Scenes/UI/Inventory.cs" id="1_8q74i"]
+[ext_resource type="Script" uid="uid://du5obnr8donwf" path="res://Game/UI/Inventory.cs" id="1_8q74i"]
 [ext_resource type="PackedScene" uid="uid://dem5wghouhf3r" path="res://Scenes/UI/HotbarSlot.tscn" id="2_oc7th"]
 
-[node name="InventoryNewNew" type="Control" unique_id=991110533]
+[node name="Inventory" type="Control" unique_id=991110533]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
