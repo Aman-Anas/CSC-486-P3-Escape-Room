@@ -11,6 +11,7 @@ metallic = 0.84
 roughness = 0.49
 
 [sub_resource type="BoxMesh" id="BoxMesh_j2x1u"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_61kc5")
 
 [sub_resource type="Animation" id="Animation_m8f2r"]
