@@ -4,23 +4,30 @@
 
 [node name="InventoryNewNew" type="Control" unique_id=991110533]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=723051830]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -380.0
-offset_top = -50.0
-offset_right = 380.0
-offset_bottom = 50.0
+anchor_bottom = 1.0
+offset_left = -556.0
+offset_top = -84.0
+offset_right = 551.0
+offset_bottom = -20.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_constants/separation = 10
+alignment = 1
 
 [node name="HotbarSlot" parent="HBoxContainer" unique_id=1864591955 instance=ExtResource("1_vjaut")]
 layout_mode = 2
@@ -41,4 +48,10 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="HotbarSlot7" parent="HBoxContainer" unique_id=1661465732 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot8" parent="HBoxContainer" unique_id=255492311 instance=ExtResource("1_vjaut")]
+layout_mode = 2
+
+[node name="HotbarSlot9" parent="HBoxContainer" unique_id=398047835 instance=ExtResource("1_vjaut")]
 layout_mode = 2
