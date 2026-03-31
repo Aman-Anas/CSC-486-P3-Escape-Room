@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DoorInfo" format=3 uid="uid://d2xjyf2186hl"]
+
+[ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="1_fuoec"]
+
+[resource]
+script = ExtResource("1_fuoec")
+LockID = "red"
+metadata/_custom_type_script = "uid://fhsi0lj0y370"
