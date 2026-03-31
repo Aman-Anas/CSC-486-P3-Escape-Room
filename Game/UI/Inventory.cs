@@ -27,6 +27,8 @@ public partial class Inventory : Control
             _contents.Add(newItem);
             _lookup[item] = newItem;
         }
+        
+        GD.Print($"[Inventory] - Picked up: {item.Name}");
     }
     
     public void RemoveItem(Item item)
