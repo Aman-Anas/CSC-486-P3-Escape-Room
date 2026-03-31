@@ -299,7 +299,11 @@ public partial class Farmer : RigidBody3D
         )
         {
             useKeyLabel.Show();
-            if (Manager.Instance.Data.CollectedKeys.Contains(door.Info.LockID))
+            if (door.Opened)
+            {
+                useKeyLabel.Text = $"Door is open.";
+            }
+            else if (Manager.Instance.Data.CollectedKeys.Contains(door.Info.LockID))
             {
                 useKeyLabel.Text = $"[e] to open door with {door.Info.LockID} key";
                 if (Input.IsActionJustPressed(GameActions.UseDoor))

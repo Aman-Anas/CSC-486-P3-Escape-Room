@@ -17,7 +17,7 @@ public partial class KeyDoor : Node3D
     [Export]
     StringName OpenAnimName = "open";
 
-    bool open = false;
+    public bool Opened { get; set; } = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -29,13 +29,13 @@ public partial class KeyDoor : Node3D
 
     public void Open(HashSet<string> currentKeys)
     {
-        if (open)
+        if (Opened)
             return;
 
         if (currentKeys.Contains(Info.LockID))
         {
             animPlayer.Play(OpenAnimName);
-            open = true;
+            Opened = true;
         }
     }
 }
