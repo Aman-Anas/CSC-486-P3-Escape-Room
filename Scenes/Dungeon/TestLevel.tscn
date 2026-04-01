@@ -147,21 +147,25 @@ Dialogue = "That's odd."
 [node name="NewBurger" parent="." unique_id=941241180 instance=ExtResource("8_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.196899, 0.4799062, -0.5509244)
 
-[node name="KeyDoor" parent="." unique_id=962990637 instance=ExtResource("11_qp46p")]
+[node name="green door" parent="." unique_id=962990637 instance=ExtResource("11_qp46p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.071604, -0.082499504, 0.108463764)
 Info = ExtResource("15_rsp6l")
+RequiredKey = ExtResource("16_cj7u2")
 
-[node name="KeyDoor4" parent="." unique_id=1031060702 instance=ExtResource("11_qp46p")]
+[node name="red door" parent="." unique_id=1031060702 instance=ExtResource("11_qp46p")]
 transform = Transform3D(0.19729799, 0, -0.9803436, 0, 1, 0, 0.9803436, 0, 0.19729799, 14.998652, -0.082499504, -3.4721582)
 Info = ExtResource("13_4mnl4")
+RequiredKey = ExtResource("18_7sq4q")
 
-[node name="KeyDoor2" parent="." unique_id=2095631940 instance=ExtResource("11_qp46p")]
+[node name="purple door" parent="." unique_id=2095631940 instance=ExtResource("11_qp46p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.040295, -0.082499504, 0.108463764)
 Info = ExtResource("16_hffpc")
+RequiredKey = ExtResource("17_g2t2b")
 
-[node name="KeyDoor3" parent="." unique_id=381732427 instance=ExtResource("11_qp46p")]
+[node name="blue door" parent="." unique_id=381732427 instance=ExtResource("11_qp46p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.980001, -0.082499266, 2.277262)
 Info = ExtResource("14_j03xh")
+RequiredKey = ExtResource("15_b6y0x")
 
 [node name="blue key" parent="." unique_id=293070295 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3345304, -0.082499504, 3.758534)
