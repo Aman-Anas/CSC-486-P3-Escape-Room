@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://du5obnr8donwf" path="res://Game/UI/Inventory.cs" id="1_8q74i"]
 [ext_resource type="PackedScene" uid="uid://dem5wghouhf3r" path="res://Scenes/UI/HotbarSlot.tscn" id="2_oc7th"]
 
-[node name="Inventory" type="Control" unique_id=991110533]
+[node name="Inventory" type="Control" unique_id=991110533 node_paths=PackedStringArray("hotbarContainer")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -14,6 +14,8 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
 script = ExtResource("1_8q74i")
+slotScene = ExtResource("2_oc7th")
+hotbarContainer = NodePath("HBoxContainer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=723051830]
 layout_mode = 1
