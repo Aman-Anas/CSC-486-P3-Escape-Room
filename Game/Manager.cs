@@ -20,7 +20,8 @@ public partial class Manager : Node
 
     public GameData Data { get; set; } = new();
     
-    public Inventory inventory { get; private set; } = new();
+    //public Inventory InventoryInstance { get; private set; } = null!;
+    //[Export] public PackedScene InventoryScene = null!;
 
     public Manager()
     {
@@ -42,6 +43,11 @@ public partial class Manager : Node
 
         // Load config vars
         LoadConfig();
+        
+        //if (InventoryInstance == null)
+        //{
+            //InventoryInstance = InventoryScene.Instantiate<Inventory>();
+        //}
     }
 
     public override void _Notification(int what)
