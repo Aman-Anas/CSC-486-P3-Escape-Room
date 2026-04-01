@@ -7,6 +7,8 @@ public partial class KeyDoor : Node3D
 {
     [Export]
     public DoorInfo Info { get; set; } = null!;
+    
+    [Export] public Item RequiredKey { get; private set; } = null!;
 
     [Export]
     CsgBox3D DoorMesh = null!;
@@ -27,15 +29,18 @@ public partial class KeyDoor : Node3D
         mat.AlbedoColor = Info.DoorColor;
     }
 
-    public void Open(HashSet<string> currentKeys)
+    //public void Open(HashSet<string> currentKeys)
+    public void Open(Inventory inventory)
     {
         if (Opened)
             return;
 
-        if (currentKeys.Contains(Info.LockID))
+        if (inventory.HasItem(RequiredKey))
+        //if (currentKeys.Contains(Info.LockID))
         {
             animPlayer.Play(OpenAnimName);
             Opened = true;
+            inventory.RemoveItem(RequiredKey);
         }
     }
 }
