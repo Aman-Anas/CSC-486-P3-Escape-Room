@@ -11,6 +11,8 @@ namespace Game.Entities;
 [GlobalClass]
 public partial class Farmer : RigidBody3D
 {
+    [Export] public Inventory inventory { get; private set; } = null!;
+    
     [Export]
     Label useKeyLabel = null!;
 
@@ -303,12 +305,14 @@ public partial class Farmer : RigidBody3D
             {
                 useKeyLabel.Text = $"Door is open.";
             }
-            else if (Manager.Instance.Data.CollectedKeys.Contains(door.Info.LockID))
+            //else if (Manager.Instance.Data.CollectedKeys.Contains(door.Info.LockID))
+            else if (inventory.HasItem(door.RequiredKey))
             {
                 useKeyLabel.Text = $"[e] to open door with {door.Info.LockID} key";
                 if (Input.IsActionJustPressed(GameActions.UseDoor))
                 {
-                    door.Open(Manager.Instance.Data.CollectedKeys);
+                    //door.Open(Manager.Instance.Data.CollectedKeys);
+                    door.Open(inventory);
                 }
             }
             else
