@@ -190,5 +190,29 @@ resource = ExtResource("18_7sq4q")
 [node name="Statue" parent="." unique_id=115633466 instance=ExtResource("16_rsp6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29560494, 0.60683477, 0.4770483)
 
+[node name="Statue2" parent="." unique_id=115633467 instance=ExtResource("16_rsp6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.60683477, 0.4770483)
+StatueId = "statue2"
+
+[node name="Statue3" parent="." unique_id=115633468 instance=ExtResource("16_rsp6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7, 0.60683477, 0.4770483)
+StatueId = "statue3"
+
+[node name="Statue4" parent="." unique_id=115633469 instance=ExtResource("16_rsp6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9, 0.60683477, 0.4770483)
+StatueId = "statue4"
+
 [node name="Pedestal" parent="." unique_id=1940833412 instance=ExtResource("17_hffpc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.502414, 0.40683454, -3.6389093)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78108263, 0.40683454, -3.6389093)
+
+[node name="Pedestal2" parent="." unique_id=1940833413 instance=ExtResource("17_hffpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0.40683454, -7.346465)
+RequiredStatueId = "statue2"
+
+[node name="Pedestal3" parent="." unique_id=1940833414 instance=ExtResource("17_hffpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.518159, 0.40683454, -3.6389093)
+RequiredStatueId = "statue3"
+
+[node name="Pedestal4" parent="." unique_id=1940833415 instance=ExtResource("17_hffpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, 0.40683454, -3.6389093)
+RequiredStatueId = "statue4"

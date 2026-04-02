@@ -169,7 +169,7 @@ normal_texture = ExtResource("7_27jcv")
 uv1_scale = Vector3(3.598, 3.598, 3.598)
 uv1_triplanar = true
 
-[node name="Farmer" type="RigidBody3D" unique_id=483625553 node_paths=PackedStringArray("inventory", "useKeyLabel", "gameTimer", "TargetPosition", "floorSensorParent", "yawTarget", "pitchTarget", "headPosition", "grappleCast", "glowyEndPos", "glowyThing", "progressBar", "damagePlayer", "EatFx")]
+[node name="Farmer" type="RigidBody3D" unique_id=483625553 node_paths=PackedStringArray("inventory", "useKeyLabel", "gameTimer", "TargetPosition", "floorSensorParent", "yawTarget", "pitchTarget", "headPosition", "grappleCast", "glowyEndPos", "glowyThing", "progressBar", "heldStatueDisplay", "damagePlayer", "EatFx")]
 collision_layer = 7
 collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_hv5dt")
@@ -191,6 +191,7 @@ returnToTitleScene = ExtResource("2_3bb7h")
 glowyEndPos = NodePath("YawTarget/PitchTarget/grappler/Armature2/Armature/Skeleton3D/BoneAttachment3D")
 glowyThing = NodePath("YawTarget/PitchTarget/grappler/Armature2")
 progressBar = NodePath("PlayerUI/TextureProgressBar")
+heldStatueDisplay = NodePath("YawTarget/PitchTarget/Camera3D/HandDisplay")
 damagePlayer = NodePath("PlayerUI/damageplayer")
 EatFx = NodePath("Eatfx")
 
@@ -371,10 +372,10 @@ transform = Transform3D(1.2851145e-08, 0, -0.097999975, -0.025364261, 0.09466071
 [node name="Armature2" parent="YawTarget/PitchTarget/grappler" unique_id=349872458 instance=ExtResource("5_bdrmn")]
 transform = Transform3D(-1.1920929e-07, -4.081633, -2.2737368e-13, 4.081633, -1.1920929e-07, -1.4210855e-14, -1.563194e-13, -5.684342e-14, 4.0816336, -1.2244899, 1.2244899, -6.3948846e-14)
 
-[node name="Armature" parent="YawTarget/PitchTarget/grappler/Armature2" index="0" unique_id=1556259588]
+[node name="Armature" parent="YawTarget/PitchTarget/grappler/Armature2" index="0" unique_id=264457695]
 transform = Transform3D(0.39999995, -7.450581e-09, 2.6645353e-15, 7.450581e-09, 0.39999995, 7.1054274e-15, -8.881784e-16, -7.1054274e-15, 0.40000004, 0.0400002, 0.120000005, 0)
 
-[node name="Skeleton3D" parent="YawTarget/PitchTarget/grappler/Armature2/Armature" index="0" unique_id=784173523]
+[node name="Skeleton3D" parent="YawTarget/PitchTarget/grappler/Armature2/Armature" index="0" unique_id=1930126642]
 bones/1/position = Vector3(0, 1, 1.1920929e-07)
 bones/1/rotation = Quaternion(3.5527164e-14, 1.7763594e-15, 3.725293e-08, 1)
 bones/1/scale = Vector3(0.9999993, 0.9999993, 1)
@@ -385,7 +386,7 @@ bone_name = "Bone.001"
 bone_idx = 1
 override_pose = true
 
-[node name="Cylinder" parent="YawTarget/PitchTarget/grappler/Armature2/Armature/Skeleton3D" index="1" unique_id=186717620]
+[node name="Cylinder" parent="YawTarget/PitchTarget/grappler/Armature2/Armature/Skeleton3D" index="1" unique_id=1991128659]
 surface_material_override/0 = SubResource("StandardMaterial3D_a4evh")
 
 [node name="CamRay" type="RayCast3D" parent="YawTarget/PitchTarget" unique_id=1274839897]
@@ -396,13 +397,17 @@ target_position = Vector3(0, -200, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
 fov = 82.72208
 
+[node name="HandDisplay" type="Node3D" parent="YawTarget/PitchTarget/Camera3D" unique_id=1940830412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5653512, -0.46866, -0.42544076)
+
 [node name="Pistol" parent="YawTarget/PitchTarget/Camera3D" unique_id=227804251 instance=ExtResource("4_8uk12")]
 transform = Transform3D(-0.047036763, 0, 0.99889314, 0, 1, 0, -0.99889314, 0, -0.047036763, 0.6501754, -0.6127966, -0.42544076)
+visible = false
 
 [node name="Pistol_12" parent="YawTarget/PitchTarget/Camera3D/Pistol" index="0" unique_id=1009415633]
 transform = Transform3D(0.321, 0, 9.781473e-10, 0, 0.321, 0, -9.781473e-10, 0, 0.321, -0.23, 0.365, -0.405)
 
-[node name="Pistol_1" parent="YawTarget/PitchTarget/Camera3D/Pistol/Pistol_12" index="0" unique_id=1830843862]
+[node name="Pistol_1" parent="YawTarget/PitchTarget/Camera3D/Pistol/Pistol_12" index="0" unique_id=1461646871]
 visible = false
 
 [node name="Muzzle" parent="YawTarget/PitchTarget/Camera3D/Pistol/Pistol_12" index="1" unique_id=677483238]
