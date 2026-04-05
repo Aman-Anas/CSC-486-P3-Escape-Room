@@ -20,6 +20,8 @@
 [ext_resource type="Resource" uid="uid://ckcof73dqwgti" path="res://Game/Resources/purple_key.tres" id="17_g2t2b"]
 [ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="17_hffpc"]
 [ext_resource type="Resource" uid="uid://ca38akcpchrlo" path="res://Game/Resources/red_key.tres" id="18_7sq4q"]
+[ext_resource type="PackedScene" uid="uid://buev36jw6s5n" path="res://Scenes/Entities/StatueDoor.tscn" id="21_cj7u2"]
+[ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="22_g2t2b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -49,6 +51,10 @@ uv1_triplanar = true
 size = Vector3(13.174988, 3.8506103, 2.4559937)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x28rk"]
+
+[sub_resource type="Resource" id="Resource_g2t2b"]
+script = ExtResource("22_g2t2b")
+metadata/_custom_type_script = "uid://fhsi0lj0y370"
 
 [node name="Level1" type="Node3D" unique_id=1866122410]
 
@@ -216,3 +222,9 @@ RequiredStatueId = "statue3"
 [node name="Pedestal4" parent="." unique_id=1940833415 instance=ExtResource("17_hffpc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, 0.40683454, -3.6389093)
 RequiredStatueId = "statue4"
+
+[node name="StatueDoor" parent="." unique_id=2006641255 node_paths=PackedStringArray("DoorMesh", "animPlayer") instance=ExtResource("21_cj7u2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.634452, -0.08249879, -3.98308)
+Info = SubResource("Resource_g2t2b")
+DoorMesh = NodePath("AnimatableBody3D/CSGBox3D")
+animPlayer = NodePath("AnimationPlayer")
