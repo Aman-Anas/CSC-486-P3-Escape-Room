@@ -50,7 +50,7 @@ text_editor/behavior/indent/size=4
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/input_helper/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/input_helper/plugin.cfg", "res://addons/proton_scatter/plugin.cfg")
 
 [file_customization]
 
@@ -62,6 +62,11 @@ folder_colors={
 [filesystem]
 
 import/blender/enabled=false
+
+[func_godot]
+
+default_map_settings="uid://3npkxo1gt233"
+model_point_class_save_path="Scenes/TrenchBroom/Models/"
 
 [gui]
 
