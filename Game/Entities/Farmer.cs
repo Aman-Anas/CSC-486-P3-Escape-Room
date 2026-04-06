@@ -293,33 +293,30 @@ public partial class Farmer : RigidBody3D
             }
         }
 
-        if (
-            grappleCast.IsColliding()
-            && IsInstanceValid(grappleCast.GetCollider())
-            && grappleCast.GetCollider() is AnimatableBody3D colObject
-            && colObject.Owner is KeyDoor door
-        )
+        var interactable = GetLookedAtInteractable();
+        if (interactable != null)
         {
-            useKeyLabel.Show();
-            if (door.Opened)
+            var interactionText = interactable.GetInteractionText(this);
+
+            if (!string.IsNullOrEmpty(interactionText))
             {
-                useKeyLabel.Text = $"Door is open.";
-            }
-            //else if (Manager.Instance.Data.CollectedKeys.Contains(door.Info.LockID))
-            else if (inventory.HasItem(door.RequiredKey))
-            {
-                useKeyLabel.Text = $"[e] to open door with {door.Info.LockID} key";
+                useKeyLabel.Show();
+                useKeyLabel.Text = interactionText;
+
+                if (useKeyLabel.LabelSettings != null)
+                {
+                    useKeyLabel.LabelSettings.FontColor = interactable.GetInteractionColor();
+                }
+
                 if (Input.IsActionJustPressed(GameActions.UseDoor))
                 {
-                    //door.Open(Manager.Instance.Data.CollectedKeys);
-                    door.Open(inventory);
+                    interactable.Interact(this);
                 }
             }
             else
             {
-                useKeyLabel.Text = $"You need a {door.Info.LockID} key to open this door.";
+                useKeyLabel.Hide();
             }
-            useKeyLabel.LabelSettings.FontColor = door.Info.DoorColor;
         }
         else
         {
@@ -535,5 +532,36 @@ public partial class Farmer : RigidBody3D
         heldStatueMesh = null;
         heldStatueMaterial = null;
         GD.Print("Statue display cleared");
+    }
+
+    private IPlayerInteractable? GetLookedAtInteractable()
+    {
+        if (!grappleCast.IsColliding() || !IsInstanceValid(grappleCast.GetCollider()))
+        {
+            return null;
+        }
+
+        if (grappleCast.GetCollider() is not Node colliderNode)
+        {
+            return null;
+        }
+
+        return FindInteractableInAncestry(colliderNode);
+    }
+
+    private static IPlayerInteractable? FindInteractableInAncestry(Node? node)
+    {
+        var current = node;
+        while (current != null)
+        {
+            if (current is IPlayerInteractable interactable)
+            {
+                return interactable;
+            }
+
+            current = current.GetParent();
+        }
+
+        return null;
     }
 }

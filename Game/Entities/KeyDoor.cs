@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Game.Entities;
 using Godot;
 
-public partial class KeyDoor : Node3D
+public partial class KeyDoor : Node3D, IPlayerInteractable
 {
     [Export]
     public DoorInfo Info { get; set; } = null!;
@@ -42,5 +42,30 @@ public partial class KeyDoor : Node3D
             Opened = true;
             inventory.RemoveItem(RequiredKey);
         }
+    }
+
+    public string GetInteractionText(Farmer farmer)
+    {
+        if (Opened)
+        {
+            return "Door is open.";
+        }
+
+        if (farmer.inventory.HasItem(RequiredKey))
+        {
+            return $"[e] to open door with {Info.LockID} key";
+        }
+
+        return $"You need a {Info.LockID} key to open this door.";
+    }
+
+    public Color GetInteractionColor()
+    {
+        return Info.DoorColor;
+    }
+
+    public void Interact(Farmer farmer)
+    {
+        Open(farmer.inventory);
     }
 }
