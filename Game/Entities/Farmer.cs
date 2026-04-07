@@ -316,6 +316,7 @@ public partial class Farmer : RigidBody3D
                 
                 case CipherPuzzleLayer layer:
                     useKeyLabel.Show();
+                    useKeyLabel.LabelSettings.FontColor = new Color("#ffffff");
                     useKeyLabel.Text = $"[J] rotate left, [K] rotate right";
                     if (Input.IsActionJustPressed(GameActions.RotateLeft)) layer.RotateLeft();
                     if (Input.IsActionJustPressed(GameActions.RotateRight)) layer.RotateRight();
