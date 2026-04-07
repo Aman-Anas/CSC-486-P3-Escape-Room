@@ -313,15 +313,19 @@ public partial class Farmer : RigidBody3D
                     else useKeyLabel.Text = $"You need a {door.RequiredKey.Name} to open this door.";
                     useKeyLabel.LabelSettings.FontColor = door.RequiredKey.ItemColor;
                     break;
-                
+
                 case CipherPuzzleLayer layer:
                     useKeyLabel.Show();
                     useKeyLabel.LabelSettings.FontColor = new Color("#ffffff");
-                    useKeyLabel.Text = $"[J] rotate left, [K] rotate right";
-                    if (Input.IsActionJustPressed(GameActions.RotateLeft)) layer.RotateLeft();
-                    if (Input.IsActionJustPressed(GameActions.RotateRight)) layer.RotateRight();
+                    if (layer.AllowRotation)
+                    {
+                        useKeyLabel.Text = $"[J] rotate left, [K] rotate right";
+                        if (Input.IsActionJustPressed(GameActions.RotateLeft)) layer.RotateLeft();
+                        if (Input.IsActionJustPressed(GameActions.RotateRight)) layer.RotateRight();
+                    }
+                    else useKeyLabel.Text = "Cipher puzzle solved";
                     break;
-                
+
                 default:
                     useKeyLabel.Hide();
                     break;
@@ -333,39 +337,6 @@ public partial class Farmer : RigidBody3D
         {
             useKeyLabel.Hide();
         }
-
-        //if (
-            //grappleCast.IsColliding()
-            //&& IsInstanceValid(grappleCast.GetCollider())
-            //&& grappleCast.GetCollider() is AnimatableBody3D colObject
-            //&& colObject.Owner is KeyDoor door
-        //)
-        //{
-            //useKeyLabel.Show();
-            //if (door.Opened)
-            //{
-                //useKeyLabel.Text = $"Door is open.";
-            //}
-            ////else if (Manager.Instance.Data.CollectedKeys.Contains(door.Info.LockID))
-            //else if (inventory.HasItem(door.RequiredKey))
-            //{
-                //useKeyLabel.Text = $"[e] to open door with {door.RequiredKey.Name}";
-                //if (Input.IsActionJustPressed(GameActions.UseDoor))
-                //{
-                    ////door.Open(Manager.Instance.Data.CollectedKeys);
-                    //door.Open(inventory);
-                //}
-            //}
-            //else
-            //{
-                //useKeyLabel.Text = $"You need a {door.RequiredKey.Name} to open this door.";
-            //}
-            //useKeyLabel.LabelSettings.FontColor = door.RequiredKey.ItemColor;
-        //}
-        //else
-        //{
-            //useKeyLabel.Hide();
-        //}
 
         if (currentGrappleNode != null)
         {
