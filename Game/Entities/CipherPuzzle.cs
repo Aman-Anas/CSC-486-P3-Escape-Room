@@ -3,19 +3,19 @@ using System;
 
 public partial class CipherPuzzle : Node3D
 {
-    // static cipher key
-    // instance of ciphertext
-    // method for checking validity of cipher
     [Export] public CipherPuzzleLayer[] Layers = [];
 
     private int[] _key = [];
 
-    public bool IsSolved()
+    public bool Check()
     {
         for (int i = 0; i < Layers.Length; i++)
         {
             if (Layers[i].SelectionIndex != _key[i]) return false;
         }
+
+        foreach (CipherPuzzleLayer layer in Layers) layer.Activate();
+
         return true;
     }
 
@@ -36,6 +36,5 @@ public partial class CipherPuzzle : Node3D
 
         // randomize selection
         foreach (CipherPuzzleLayer layer in Layers) layer.RandomizeSelection();
-
     }
 }
