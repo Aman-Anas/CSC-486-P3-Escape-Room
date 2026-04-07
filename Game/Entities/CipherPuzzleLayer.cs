@@ -1,13 +1,16 @@
 using Godot;
 using System;
-// using System.Collections.Generic;
 
 public partial class CipherPuzzleLayer : Node3D
 {
     [Export] public CompressedTexture2D[] RuneTextures = [];
-    [Export] public Color RuneColor = new("#7f543d");
+    [Export] public Color SelectedRuneColor = new("#ffff00");
+    [Export] public Color InactiveRuneColor = new("#000000");
+    [Export] public Color ActivatedRuneColor = new("#ffff00");
+    [Export] public float TweenTime = 0.5f;
 
     public static readonly Random random = new();
+    private bool AllowRotation = true;
 
     private int _rotationIndex = 0;
     public int SelectionIndex { get; private set; } = 0;
@@ -18,7 +21,23 @@ public partial class CipherPuzzleLayer : Node3D
         SelectionIndex = random.Next(RuneTextures.Length);
         _rotationIndex = SelectionIndex;
         DoRotation();
+        ActivateRune(SelectionIndex);
         return SelectionIndex;
+    }
+
+    public void ActivateRune(int index)
+    {
+        SetRuneColor(index, SelectedRuneColor);
+    }
+
+    public void DeactivateRune(int index)
+    {
+        SetRuneColor(index, InactiveRuneColor);
+    }
+
+    public void CorrectRune()
+    {
+        SetRuneColor(SelectionIndex, ActivatedRuneColor);
     }
 
     private void ClampSelected()
@@ -34,59 +53,75 @@ public partial class CipherPuzzleLayer : Node3D
     private void DoRotation()
     {
         Tween tween = CreateTween();
-        float target = (float)_rotationIndex / RuneTextures.Length * 2.0f * (float)Math.PI;
-        tween.TweenProperty(this, "rotation:y", target, 0.5f)
+        float target = -(float)_rotationIndex / RuneTextures.Length * 2.0f * (float)Math.PI;
+        tween.TweenProperty(this, "rotation:y", target, TweenTime)
             .SetTrans(Tween.TransitionType.Quart)
             .SetEase(Tween.EaseType.Out);
     }
 
     public void RotateLeft()
     {
-        _rotationIndex--;
+        _rotationIndex++;
         DoRotation();
 
-        SelectionIndex--;
+        DeactivateRune(SelectionIndex);
+        SelectionIndex++;
         ClampSelected();
+        ActivateRune(SelectionIndex);
         PrintSelected();
     }
 
     public void RotateRight()
     {
-        _rotationIndex++;
+        _rotationIndex--;
         DoRotation();
 
-        SelectionIndex++;
+        DeactivateRune(SelectionIndex);
+        SelectionIndex--;
         ClampSelected();
+        ActivateRune(SelectionIndex);
         PrintSelected();
+    }
+
+    private Sprite3D[] _runes = [];
+
+    public void SetRuneColor(int index, Color color)
+    {
+        Tween tween = CreateTween();
+        tween.TweenProperty(_runes[index], "modulate", color, TweenTime)
+            .SetTrans(Tween.TransitionType.Quart)
+            .SetEase(Tween.EaseType.Out);
     }
 
     public override void _Ready()
     {
         // create runes around edge
+        _runes = new Sprite3D[RuneTextures.Length];
         for (int i = 0; i < RuneTextures.Length; i++)
         {
-            Sprite3D sprite = new Sprite3D();
-            sprite.Texture = RuneTextures[i];
-            sprite.Modulate = RuneColor;
+            Sprite3D rune = new Sprite3D();
+            _runes[i] = rune;
+            rune.Texture = RuneTextures[i];
+            rune.Modulate = InactiveRuneColor;
 
             // set position
             double angle = (double)i / RuneTextures.Length * 2 * Math.PI;
-            sprite.Position = new Vector3(
+            rune.Position = new Vector3(
                 (float)Math.Sin(angle),
                 0,
                 (float)Math.Cos(angle)
             );
 
             // set rotation
-            sprite.Rotation = sprite.Rotation with
+            rune.Rotation = rune.Rotation with
             {
                 Y = (float)angle
             };
 
             // set scale
-            sprite.Scale *= (float)0.28;
+            rune.Scale *= (float)0.28;
 
-            AddChild(sprite);
+            AddChild(rune);
         }
     }
 }
