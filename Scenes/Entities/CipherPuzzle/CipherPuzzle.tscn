@@ -9,6 +9,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ai3wv"]
 size = Vector3(2.5, 0.4, 2.5)
 
+[sub_resource type="PrismMesh" id="PrismMesh_ai3wv"]
+size = Vector3(0.2, 0.05, 0.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ouxfs"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+
 [node name="CipherPuzzle" type="Node3D" unique_id=2135199629 node_paths=PackedStringArray("Layers")]
 script = ExtResource("1_awfqu")
 Layers = [NodePath("layer 1"), NodePath("layer 2"), NodePath("layer 3"), NodePath("layer 4"), NodePath("layer 5"), NodePath("layer 6"), NodePath("layer 7")]
@@ -44,3 +51,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5853045, 0)
 
 [node name="layer 7" parent="." unique_id=1866694181 instance=ExtResource("3_ai3wv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8086464, 0)
+
+[node name="front marker" type="MeshInstance3D" parent="." unique_id=50357195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42310432, 1.045396)
+mesh = SubResource("PrismMesh_ai3wv")
+surface_material_override/0 = SubResource("StandardMaterial3D_ouxfs")
