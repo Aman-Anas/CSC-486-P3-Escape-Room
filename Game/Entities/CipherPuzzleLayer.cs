@@ -7,30 +7,47 @@ public partial class CipherPuzzleLayer : Node3D
     [Export] public CompressedTexture2D[] RuneTextures = [];
     [Export] public Color RuneColor = new Color("#7f543d");
     
+    private int rotationIndex = 0;
     private int selected = 0;
     private double runeDistance = 1.01;
     
     private void _ClampSelected()
     {
-        selected %= RuneTextures.Length;
+        selected = (selected + RuneTextures.Length) % RuneTextures.Length;
+    }
+    
+    private void _PrintSelected()
+    {
+        GD.Print($"selected: {selected}");
+    }
+    
+    private void _DoRotation()
+    {
+        Tween tween = CreateTween();
+        float target = (float)rotationIndex / RuneTextures.Length * 2.0f * (float)Math.PI;
+        tween.TweenProperty(this, "rotation:y", target, 0.5f)
+            .SetTrans(Tween.TransitionType.Quart)
+            .SetEase(Tween.EaseType.Out);
     }
     
     public void RotateLeft()
     {
-        selected++; // don't clamp now, rotation needs to wrap around length
+        rotationIndex--;
+        _DoRotation();
         
-        Tween tween = CreateTween();
-        float target = (float)selected / RuneTextures.Length * 2.0f * (float)Math.PI;
-        tween.TweenProperty(this, "rotation:y", target, 0.5f)
-            .SetTrans(Tween.TransitionType.Quart)
-            .SetEase(Tween.EaseType.Out);
-        
+        selected--;
         _ClampSelected();
+        _PrintSelected();
     }
     
     public void RotateRight()
     {
-        
+        rotationIndex++;
+        _DoRotation();
+            
+        selected++;
+        _ClampSelected();
+        _PrintSelected();
     }
     
     public override void _Ready()
