@@ -4,6 +4,9 @@ using System;
 public partial class CipherPuzzle : Node3D
 {
     [Export] public CipherPuzzleLayer[] Layers = [];
+    [Export] public MeshInstance3D FrontMarker = null!;
+    [Export] public Color SolvedColor = new("#ffff00");
+    [Export] public Color UnsolvedColor = new("#d2241e");
 
     private int[] _key = [];
 
@@ -14,7 +17,15 @@ public partial class CipherPuzzle : Node3D
             if (Layers[i].SelectionIndex != _key[i]) return false;
         }
 
+        // layer solved color
         foreach (CipherPuzzleLayer layer in Layers) layer.Activate();
+
+        // front marker solved color
+        if (FrontMarker.GetActiveMaterial(0) is StandardMaterial3D material)
+        {
+            material.EmissionEnabled = true;
+            material.AlbedoColor = new("#777777");
+        }
 
         return true;
     }
@@ -36,5 +47,13 @@ public partial class CipherPuzzle : Node3D
 
         // randomize selection
         foreach (CipherPuzzleLayer layer in Layers) layer.RandomizeSelection();
+
+        // front marker unsolved color
+        if (FrontMarker.GetActiveMaterial(0) is StandardMaterial3D material)
+        {
+            material.AlbedoColor = UnsolvedColor;
+            material.EmissionEnabled = false;
+            material.Emission = SolvedColor;
+        }
     }
 }
