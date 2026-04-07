@@ -26,3 +26,11 @@ mesh = SubResource("3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 visible = false
 mesh = SubResource("3")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1300000001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+billboard = 1
+no_depth_test = true
+pixel_size = 0.006
+text = "[e] to place statue"
+visible = false
