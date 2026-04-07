@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DoorInfo" format=3 uid="uid://heg7hwg6bpjj"]
-
-[ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="1_ljkrk"]
-
-[resource]
-script = ExtResource("1_ljkrk")
-DoorColor = Color(0.7702241, 0.15120208, 0.9999998, 1)
-LockID = "purple"
-metadata/_custom_type_script = "uid://fhsi0lj0y370"

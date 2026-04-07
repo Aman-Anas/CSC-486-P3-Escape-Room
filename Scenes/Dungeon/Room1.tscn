@@ -1,24 +1,63 @@
 [gd_scene format=3 uid="uid://ce30nfq1den50"]
 
 [ext_resource type="PackedScene" uid="uid://ij7ne5xfh03n" path="res://assets/batch_exports/newlevel/Cube_002.gltf" id="1_8jspa"]
-[ext_resource type="Material" uid="uid://cfls41uebm78j" path="res://assets/mats/test_material.tres" id="2_go00g"]
+[ext_resource type="Texture2D" uid="uid://21v8pbjy0ju2" path="res://assets/mats/cheese/cheese_albedo.png" id="2_ff5du"]
 [ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/old/Farmer.tscn" id="2_tu244"]
+[ext_resource type="Texture2D" uid="uid://ddhpi3p6hsd3m" path="res://assets/mats/cheese/cheese_normal.png" id="3_ooao5"]
 [ext_resource type="PackedScene" uid="uid://xyrpvrplo423" path="res://assets/batch_exports/newlevel/Cube_008.gltf" id="5_0dc40"]
 [ext_resource type="PackedScene" uid="uid://low65qyo52hj" path="res://assets/batch_exports/newlevel/Cube_004.gltf" id="5_cq2wq"]
 [ext_resource type="PackedScene" uid="uid://csdaujqj4gyvy" path="res://assets/batch_exports/newlevel/FunctionalDoor.tscn" id="6_cq2wq"]
 [ext_resource type="PackedScene" uid="uid://bdwe8fs3iqrup" path="res://assets/batch_exports/newlevel/Cube.gltf" id="7_xlnre"]
 [ext_resource type="PackedScene" uid="uid://ol3m6v3yt6x0" path="res://assets/batch_exports/newlevel/Cube_005.gltf" id="8_f21x3"]
+[ext_resource type="Resource" uid="uid://mmyw8tjfhn1u" path="res://Scenes/Entities/Door_item_purple.tres" id="9_m1plc"]
 [ext_resource type="PackedScene" uid="uid://dnd3l2uic5j3j" path="res://assets/batch_exports/newlevel/Cube_007.gltf" id="9_unnmr"]
+[ext_resource type="PackedScene" uid="uid://78mq6el7k5ox" path="res://Scenes/Entities/keys.tscn" id="11_ooao5"]
+[ext_resource type="Resource" uid="uid://b30u1ba2a7p40" path="res://Scenes/Entities/Door_item_red.tres" id="12_7atn6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_unnmr"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ff5du"]
+sky_material = SubResource("ProceduralSkyMaterial_unnmr")
+
+[sub_resource type="Environment" id="Environment_ooao5"]
+background_mode = 2
+sky = SubResource("Sky_ff5du")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 1.24
+ssao_intensity = 2.08
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7atn6"]
+albedo_texture = ExtResource("2_ff5du")
+normal_enabled = true
+normal_scale = 0.52
+normal_texture = ExtResource("3_ooao5")
+heightmap_enabled = true
+heightmap_scale = -1.56
+heightmap_texture = ExtResource("2_ff5du")
+uv1_scale = Vector3(2.935, 2.935, 2.935)
 
 [node name="Room1" type="Node3D" unique_id=863940943]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=654652193]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1436994972]
+environment = SubResource("Environment_ooao5")
 
 [node name="Cube_0022" parent="." unique_id=134980212 instance=ExtResource("1_8jspa")]
 visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1369711033]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.099999994, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.101, 0)
+use_collision = true
 size = Vector3(159.19043, 0.2, 110.15723)
-material = ExtResource("2_go00g")
+material = SubResource("StandardMaterial3D_7atn6")
 
 [node name="Farmer" parent="." unique_id=483625553 instance=ExtResource("2_tu244")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.797, 0.031893253, -11.865)
@@ -166,7 +205,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, 0, 5.5)
 [node name="FunctionalDoor" parent="Walls" unique_id=1515798251 instance=ExtResource("6_cq2wq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0, -7)
 
-[node name="FunctionalDoor3" parent="Walls" unique_id=297276725 instance=ExtResource("6_cq2wq")]
+[node name="KeyDoor" parent="Walls/FunctionalDoor" index="0" unique_id=962990637]
+RequiredKey = ExtResource("12_7atn6")
+
+[node name="FunctionalDoor3" parent="Walls" unique_id=1409144135 instance=ExtResource("6_cq2wq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 5.5)
 
 [node name="Cube_0088" parent="Walls" unique_id=1335382448 instance=ExtResource("5_cq2wq")]
@@ -187,7 +229,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6, 
 [node name="Cube_0110" parent="Walls" unique_id=564153974 instance=ExtResource("5_cq2wq")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3, 0, 12.5)
 
-[node name="FunctionalDoor4" parent="Walls" unique_id=907605361 instance=ExtResource("6_cq2wq")]
+[node name="FunctionalDoor4" parent="Walls" unique_id=2004295372 instance=ExtResource("6_cq2wq")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -13, 0, 12.5)
 
 [node name="Cube_0062" parent="Walls" unique_id=1979742742 instance=ExtResource("5_cq2wq")]
@@ -199,8 +241,11 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 
 [node name="Cube_0064" parent="Walls" unique_id=714860821 instance=ExtResource("5_cq2wq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0, -3.5)
 
-[node name="FunctionalDoor2" parent="Walls" unique_id=59604694 instance=ExtResource("6_cq2wq")]
+[node name="FunctionalDoor2" parent="Walls" unique_id=1715323587 instance=ExtResource("6_cq2wq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0, -7)
+
+[node name="KeyDoor" parent="Walls/FunctionalDoor2" index="0" unique_id=962990637]
+RequiredKey = ExtResource("9_m1plc")
 
 [node name="Cube_0067" parent="Walls" unique_id=51213981 instance=ExtResource("5_cq2wq")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 24.5, 0, 11)
@@ -277,59 +322,72 @@ transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 5.49
 [node name="Cube_0103" parent="Walls" unique_id=1419807519 instance=ExtResource("5_cq2wq")]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 14, 0, 22.5)
 
-[node name="Cube2" parent="." unique_id=1494069947 instance=ExtResource("7_xlnre")]
+[node name="Cube2" parent="Walls" unique_id=1494069947 instance=ExtResource("7_xlnre")]
 visible = false
 
-[node name="Cube_0052" parent="." unique_id=67019841 instance=ExtResource("8_f21x3")]
+[node name="Cube_0122" parent="Walls" unique_id=67019841 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.96592593, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, -0.96592593, -18, 0, 37.8)
 
-[node name="Cube_0054" parent="." unique_id=1255411031 instance=ExtResource("8_f21x3")]
+[node name="Cube_0123" parent="Walls" unique_id=1255411031 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.96592593, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, -0.96592593, -14.619259, 0, 38.705864)
 
-[node name="Cube_0055" parent="." unique_id=316576208 instance=ExtResource("8_f21x3")]
+[node name="Cube_0124" parent="Walls" unique_id=316576208 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.96592593, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, -0.96592593, -11.721481, 0, 39.482323)
 
-[node name="Cube_0056" parent="." unique_id=1362692322 instance=ExtResource("8_f21x3")]
+[node name="Cube_0125" parent="Walls" unique_id=1362692322 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.8660255, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, -0.8660255, -8.602243, 0, 40.70928)
 
-[node name="Cube_0053" parent="." unique_id=1061601238 instance=ExtResource("8_f21x3")]
+[node name="Cube_0126" parent="Walls" unique_id=1061601238 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.96592593, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, -0.96592593, -21, 0, 37)
 
-[node name="Cube_0057" parent="." unique_id=407311352 instance=ExtResource("8_f21x3")]
+[node name="Cube_0127" parent="Walls" unique_id=407311352 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 42.526585, 0, 36.40406)
 
-[node name="Cube_0072" parent="." unique_id=1974401671 instance=ExtResource("9_unnmr")]
+[node name="Cube_0128" parent="Walls" unique_id=1974401671 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 39.3, 0, 36.85)
 
-[node name="Cube_0073" parent="." unique_id=759762312 instance=ExtResource("9_unnmr")]
+[node name="Cube_0129" parent="Walls" unique_id=759762312 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 35.8, 0, 36.85)
 
-[node name="Cube_0074" parent="." unique_id=1447245969 instance=ExtResource("9_unnmr")]
+[node name="Cube_0130" parent="Walls" unique_id=1447245969 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-0.9659258, 0, -0.25881895, 0, 1, 0, 0.25881895, 0, -0.9659258, 32.877644, 0, 37.13978)
 
-[node name="Cube_0075" parent="." unique_id=1206095091 instance=ExtResource("9_unnmr")]
+[node name="Cube_0131" parent="Walls" unique_id=1206095091 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-0.9659258, 0, -0.25881895, 0, 1, 0, 0.25881895, 0, -0.9659258, 29.496902, 0, 38.045643)
 
-[node name="Cube_0076" parent="." unique_id=159796606 instance=ExtResource("9_unnmr")]
+[node name="Cube_0132" parent="Walls" unique_id=159796606 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-0.9659258, 0, -0.25881895, 0, 1, 0, 0.25881895, 0, -0.9659258, 26.116161, 0, 38.951508)
 
-[node name="Cube_0077" parent="." unique_id=298455643 instance=ExtResource("9_unnmr")]
+[node name="Cube_0133" parent="Walls" unique_id=298455643 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-0.8660254, 0, -0.4999999, 0, 1, 0, 0.4999999, 0, -0.8660254, 22.96042, 0, 40.247086)
 
-[node name="Cube_0078" parent="." unique_id=15628392 instance=ExtResource("9_unnmr")]
+[node name="Cube_0134" parent="Walls" unique_id=15628392 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-0.8660254, 0, -0.4999999, 0, 1, 0, 0.4999999, 0, -0.8660254, 20.362345, 0, 41.747086)
 
-[node name="Cube_0079" parent="." unique_id=1989424061 instance=ExtResource("9_unnmr")]
+[node name="Cube_0135" parent="Walls" unique_id=1989424061 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-0.8660254, 0, -0.4999999, 0, 1, 0, 0.4999999, 0, -0.8660254, 17.331257, 0, 43.497086)
 
-[node name="Cube_0080" parent="." unique_id=180346892 instance=ExtResource("9_unnmr")]
+[node name="Cube_0136" parent="Walls" unique_id=180346892 instance=ExtResource("9_unnmr")]
 transform = Transform3D(-0.8660254, 0, -0.4999999, 0, 1, 0, 0.4999999, 0, -0.8660254, 14.733181, 0, 44.997086)
 
-[node name="Cube_0082" parent="." unique_id=200931418 instance=ExtResource("5_0dc40")]
+[node name="Cube_0137" parent="Walls" unique_id=200931418 instance=ExtResource("5_0dc40")]
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, -5, 0, 44)
 
-[node name="Cube_0083" parent="." unique_id=1500761259 instance=ExtResource("5_0dc40")]
+[node name="Cube_0138" parent="Walls" unique_id=1500761259 instance=ExtResource("5_0dc40")]
 transform = Transform3D(0.96592575, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.96592575, 9.566533, 0, 47.172066)
 
-[node name="Cube_0058" parent="." unique_id=2121508411 instance=ExtResource("8_f21x3")]
+[node name="Cube_0139" parent="Walls" unique_id=2121508411 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.7071067, 0, 0.7071069, 0, 1, 0, -0.7071069, 0, -0.7071067, -5.898959, 0, 42.747486)
+
+[node name="Key" parent="." unique_id=293070295 instance=ExtResource("11_ooao5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -4)
+Info = ExtResource("12_7atn6")
+
+[node name="Key2" parent="." unique_id=1133419126 instance=ExtResource("11_ooao5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -14)
+Info = ExtResource("9_m1plc")
+
+[editable path="Walls/FunctionalDoor"]
+[editable path="Walls/FunctionalDoor/doorframe2"]
+[editable path="Walls/FunctionalDoor2"]
+[editable path="Walls/FunctionalDoor2/doorframe2"]

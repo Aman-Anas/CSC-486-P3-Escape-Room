@@ -79,6 +79,7 @@ _data = {
 font_size = 26
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6kf3"]
+radius = 0.45
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4evh"]
 emission_enabled = true

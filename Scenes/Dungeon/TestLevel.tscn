@@ -9,15 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/old/BobTrigger.tscn" id="8_gp5al"]
 [ext_resource type="PackedScene" uid="uid://dqh0kwyoy2mw0" path="res://Scenes/Entities/old/NewBurger.tscn" id="8_silom"]
 [ext_resource type="PackedScene" uid="uid://78mq6el7k5ox" path="res://Scenes/Entities/keys.tscn" id="9_silom"]
+[ext_resource type="Resource" uid="uid://nno8anhtioeo" path="res://Scenes/Entities/Door_item_blue.tres" id="11_hffpc"]
 [ext_resource type="PackedScene" uid="uid://bs0xy5r7f2xr0" path="res://Scenes/Entities/KeyDoor.tscn" id="11_qp46p"]
-[ext_resource type="Resource" uid="uid://d2xjyf2186hl" path="res://Scenes/Entities/Door_Red.tres" id="13_4mnl4"]
-[ext_resource type="Resource" uid="uid://6r71jlg2ewv" path="res://Scenes/Entities/Door_Blue.tres" id="14_j03xh"]
-[ext_resource type="Resource" uid="uid://dw5w4414b4lht" path="res://Scenes/Entities/Door_Green.tres" id="15_rsp6l"]
-[ext_resource type="Resource" uid="uid://heg7hwg6bpjj" path="res://Scenes/Entities/Door_Purple.tres" id="16_hffpc"]
+[ext_resource type="Resource" uid="uid://b2ah6v4scde21" path="res://Scenes/Entities/Door_item_green.tres" id="12_rsp6l"]
+[ext_resource type="Resource" uid="uid://mmyw8tjfhn1u" path="res://Scenes/Entities/Door_item_purple.tres" id="13_hffpc"]
+[ext_resource type="Resource" uid="uid://b30u1ba2a7p40" path="res://Scenes/Entities/Door_item_red.tres" id="14_hffpc"]
 [ext_resource type="PackedScene" uid="uid://clps5spybgwyb" path="res://Scenes/Entities/Statue.tscn" id="16_rsp6l"]
 [ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="17_hffpc"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/StatueDoor.tscn" id="21_cj7u2"]
-[ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="22_g2t2b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -47,10 +45,6 @@ uv1_triplanar = true
 size = Vector3(13.174988, 3.8506103, 2.4559937)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x28rk"]
-
-[sub_resource type="Resource" id="Resource_g2t2b"]
-script = ExtResource("22_g2t2b")
-metadata/_custom_type_script = "uid://fhsi0lj0y370"
 
 [node name="Level1" type="Node3D" unique_id=1866122410]
 
@@ -151,35 +145,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.196899, 0.4799062, -0.55092
 
 [node name="green door" parent="." unique_id=962990637 instance=ExtResource("11_qp46p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.071604, -0.082499504, 0.108463764)
-Info = ExtResource("15_rsp6l")
+RequiredKey = ExtResource("11_hffpc")
 
 [node name="red door" parent="." unique_id=1031060702 instance=ExtResource("11_qp46p")]
 transform = Transform3D(0.19729799, 0, -0.9803436, 0, 1, 0, 0.9803436, 0, 0.19729799, 14.998652, -0.082499504, -3.4721582)
-Info = ExtResource("13_4mnl4")
+RequiredKey = ExtResource("14_hffpc")
 
 [node name="purple door" parent="." unique_id=2095631940 instance=ExtResource("11_qp46p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.040295, -0.082499504, 0.108463764)
-Info = ExtResource("16_hffpc")
+RequiredKey = ExtResource("13_hffpc")
 
 [node name="blue door" parent="." unique_id=381732427 instance=ExtResource("11_qp46p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.980001, -0.082499266, 2.277262)
-Info = ExtResource("14_j03xh")
+RequiredKey = ExtResource("12_rsp6l")
 
 [node name="blue key" parent="." unique_id=293070295 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3345304, -0.082499504, 3.758534)
-Info = ExtResource("14_j03xh")
+Info = ExtResource("11_hffpc")
 
 [node name="green key" parent="." unique_id=960822967 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122995615, -0.082499504, 3.758534)
-Info = ExtResource("15_rsp6l")
+Info = ExtResource("12_rsp6l")
 
 [node name="purple key" parent="." unique_id=1242750559 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9357352, -0.082499504, 3.758534)
-Info = ExtResource("16_hffpc")
+Info = ExtResource("13_hffpc")
 
 [node name="red key" parent="." unique_id=1896419628 instance=ExtResource("9_silom")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.274021, -0.082499504, 3.758534)
-Info = ExtResource("13_4mnl4")
+Info = ExtResource("14_hffpc")
 
 [node name="Statue" parent="." unique_id=115633466 instance=ExtResource("16_rsp6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29560494, 0.60683477, 0.4770483)
@@ -210,9 +204,3 @@ RequiredStatueId = "statue3"
 [node name="Pedestal4" parent="." unique_id=1940833415 instance=ExtResource("17_hffpc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, 0.40683454, -3.6389093)
 RequiredStatueId = "statue4"
-
-[node name="StatueDoor" parent="." unique_id=2006641255 node_paths=PackedStringArray("DoorMesh", "animPlayer") instance=ExtResource("21_cj7u2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.634452, -0.08249879, -3.98308)
-Info = SubResource("Resource_g2t2b")
-DoorMesh = NodePath("AnimatableBody3D/CSGBox3D")
-animPlayer = NodePath("AnimationPlayer")

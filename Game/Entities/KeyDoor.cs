@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game.Entities;
 using Godot;
 
 public partial class KeyDoor : Node3D
 {
     [Export]
-    public DoorInfo Info { get; set; } = null!;
-    
-    [Export] public Item RequiredKey { get; private set; } = null!;
+    public Item RequiredKey { get; private set; } = null!;
 
     [Export]
     CsgBox3D DoorMesh = null!;
@@ -26,7 +25,7 @@ public partial class KeyDoor : Node3D
     {
         var mat = (StandardMaterial3D)this.DoorMesh.Material;
 
-        mat.AlbedoColor = Info.DoorColor;
+        mat.AlbedoColor = RequiredKey.ItemColor;
     }
 
     //public void Open(HashSet<string> currentKeys)

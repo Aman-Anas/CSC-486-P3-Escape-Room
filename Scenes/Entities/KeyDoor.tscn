@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://bs0xy5r7f2xr0"]
 
 [ext_resource type="Script" uid="uid://cwvm7tf32yg3e" path="res://Game/Entities/KeyDoor.cs" id="1_ehuso"]
-[ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="2_qhnma"]
 [ext_resource type="Texture2D" uid="uid://bigwnn62erlmu" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="3_qhnma"]
-
-[sub_resource type="Resource" id="Resource_lxfwk"]
-script = ExtResource("2_qhnma")
-LockID = "red"
-metadata/_custom_type_script = "uid://fhsi0lj0y370"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lxfwk"]
 resource_local_to_scene = true
@@ -55,7 +49,6 @@ _data = {
 
 [node name="KeyDoor" type="Node3D" unique_id=962990637 node_paths=PackedStringArray("DoorMesh", "animPlayer")]
 script = ExtResource("1_ehuso")
-Info = SubResource("Resource_lxfwk")
 DoorMesh = NodePath("AnimatableBody3D/CSGBox3D")
 animPlayer = NodePath("AnimationPlayer")
 

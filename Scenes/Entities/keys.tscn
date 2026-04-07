@@ -1,25 +1,16 @@
 [gd_scene format=3 uid="uid://78mq6el7k5ox"]
 
-[ext_resource type="Script" uid="uid://b6l7wfgx8kv3r" path="res://Scenes/Keys.cs" id="1_gd55d"]
+[ext_resource type="Script" uid="uid://b6l7wfgx8kv3r" path="res://Game/Entities/Keys.cs" id="1_gd55d"]
+[ext_resource type="Texture2D" uid="uid://bos8ctawdhsdd" path="res://images/red key hotbar image.png" id="2_m8f2r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gd55d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61kc5"]
-resource_local_to_scene = true
-albedo_color = Color(1, 1, 0.06666667, 1)
-metallic = 0.84
-roughness = 0.49
-
-[sub_resource type="BoxMesh" id="BoxMesh_j2x1u"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_61kc5")
 
 [sub_resource type="Animation" id="Animation_m8f2r"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/path = NodePath("Sprite3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -35,7 +26,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/path = NodePath("Sprite3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -54,15 +45,15 @@ _data = {
 [node name="Key" type="Area3D" unique_id=293070295 node_paths=PackedStringArray("player", "mesh")]
 script = ExtResource("1_gd55d")
 player = NodePath("AnimationPlayer")
-mesh = NodePath("MeshInstance3D")
+mesh = NodePath("Sprite3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1551486259]
 transform = Transform3D(0.88000005, 0, 0, 0, 0.88000005, 0, 0, 0, 0.88000005, 0, 0.59999996, 0)
 shape = SubResource("BoxShape3D_gd55d")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1600714424]
-transform = Transform3D(0.42000002, 0, 0, 0, 0.42000002, 0, 0, 0, 0.42000002, 0, 0.7, 0)
-mesh = SubResource("BoxMesh_j2x1u")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2127195933]
 libraries/ = SubResource("AnimationLibrary_m8f2r")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=995958843]
+transform = Transform3D(0.3118983, 0, 0, 0, 0.31189826, 0, 0, 0, 0.3118983, 0, 0.7, 0)
+texture = ExtResource("2_m8f2r")
