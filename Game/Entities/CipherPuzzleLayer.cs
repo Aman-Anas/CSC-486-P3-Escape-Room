@@ -39,6 +39,14 @@ public partial class CipherPuzzleLayer : Node3D
         SelectRune(SelectionIndex);
         return SelectionIndex;
     }
+    
+    public void SetSelection(int selection)
+    {
+        SelectionIndex = selection;
+        _rotationIndex = SelectionIndex;
+        DoRotation();
+        SelectRune(SelectionIndex);
+    }
 
     public void SelectRune(int index)
     {

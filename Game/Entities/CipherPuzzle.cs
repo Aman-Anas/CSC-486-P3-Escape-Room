@@ -16,6 +16,8 @@ public partial class CipherPuzzle : Node3D
 
     [Export]
     public Color UnsolvedColor = new("#d2241e");
+    
+    [Export] public int[] PredefinedKey = new int[7] { 4, 11, 8, 9, 0, 10, 4 };
 
     private int[] _key = [];
 
@@ -54,7 +56,11 @@ public partial class CipherPuzzle : Node3D
         // generate key
         _key = new int[numLayers];
         for (int i = 0; i < numLayers; i++)
-            _key[i] = CipherPuzzleLayer.random.Next(numRunes);
+        {
+            //_key[i] = CipherPuzzleLayer.random.Next(numRunes);
+            _key[i] = PredefinedKey[i];
+            Layers[i].SetSelection(PredefinedKey[i]);
+        }
         PrintKey();
 
         // randomize selection
