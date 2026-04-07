@@ -30,13 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://bjpa1c2jnrwox" path="res://assets/PotMural.png" id="25_rqnnm"]
 [ext_resource type="PackedScene" path="res://Scenes/Entities/StatueDoor.tscn" id="29_1ggvp"]
 [ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="30_77qxt"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/old/BobTrigger.tscn" id="31_joygb"]
 [ext_resource type="PackedScene" uid="uid://dbi28u8ytw1e2" path="res://Scenes/Entities/old/Bob.tscn" id="32_lcaxa"]
-=======
 [ext_resource type="PackedScene" uid="uid://dshc6s2di6du1" path="res://Scenes/Entities/CipherPuzzle/CipherPuzzle.tscn" id="25_rqnnm"]
 [ext_resource type="PackedScene" uid="uid://dvqcnrl8555db" path="res://Scenes/Entities/CipherPuzzle/RuneAnswerScroll.tscn" id="26_6buit"]
->>>>>>> c907c7cf4a1197fcc29837b24fafdd59110b718d
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_unnmr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
