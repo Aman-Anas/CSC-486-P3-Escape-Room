@@ -7,7 +7,7 @@ public partial class CipherPuzzleLayer : Node3D
     [Export] public CompressedTexture2D[] RuneTextures = [];
     [Export] public Color RuneColor = new("#7f543d");
 
-    private static readonly Random random = new();
+    public static readonly Random random = new();
 
     private int _rotationIndex = 0;
     public int SelectionIndex { get; private set; } = 0;
