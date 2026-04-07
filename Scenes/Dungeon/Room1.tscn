@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://upgf2x2gbv53" path="res://Scenes/Entities/Laser/mirror_socket.tscn" id="23_56inj"]
 [ext_resource type="PackedScene" uid="uid://c0kfgcgpcqpn7" path="res://Scenes/Entities/Laser/mirror_block.tscn" id="24_f7vci"]
 [ext_resource type="Texture2D" uid="uid://bjpa1c2jnrwox" path="res://assets/PotMural.png" id="25_rqnnm"]
-[ext_resource type="PackedScene" uid="uid://buev36jw6s5n" path="res://Scenes/Entities/StatueDoor.tscn" id="29_1ggvp"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/StatueDoor.tscn" id="29_1ggvp"]
 [ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="30_77qxt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_unnmr"]
@@ -338,7 +338,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0, -14)
 
 [node name="Cube_0064" parent="Walls" unique_id=714860821 instance=ExtResource("5_cq2wq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0, -3.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.95, 0, -3.9)
 
 [node name="FunctionalDoor2" parent="Walls" unique_id=1715323587 instance=ExtResource("6_cq2wq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0, -7)
@@ -682,13 +682,13 @@ transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.70710
 Controller = NodePath("../LaserPuzzleController")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=979454794]
-transform = Transform3D(-0.996109, 0, -0.088129394, 0, 1, 0, 0.088129394, 0, -0.996109, 2.228887, 2.5705163, -3.013493)
+transform = Transform3D(-2.7999988, 0.0001337385, -0.0027335046, 0, 2.796655, 0.13682817, 0.0027367743, 0.13682811, -2.7966535, 1.6816828, 3.1822872, -2.7166145)
+shaded = true
 texture = ExtResource("25_rqnnm")
 
-[node name="StatueDoor" parent="." unique_id=981400620 node_paths=PackedStringArray("DoorMesh", "animPlayer") instance=ExtResource("29_1ggvp")]
+[node name="StatueDoor" parent="." unique_id=981400620 node_paths=PackedStringArray("animPlayer") instance=ExtResource("29_1ggvp")]
 transform = Transform3D(-0.9995727, 0, -0.029230159, 0, 1, 0, 0.029230159, 0, -0.9995727, 9.390992, -0.008887172, -2.7647142)
 Info = SubResource("Resource_djal1")
-DoorMesh = NodePath("")
 animPlayer = NodePath("AnimationPlayer")
 
 [editable path="Walls/FunctionalDoor"]
