@@ -12,7 +12,7 @@ public partial class LaserEmitter : Node3D, IPlayerInteractable
     public StaticBody3D CollisionBody { get; set; } = null!;
 
     [Export]
-    public float RotationStepDegrees { get; set; } = 45f;
+    public float RotationStepDegrees { get; set; } = 5f;
 
     [Export]
     public Color InteractionColor { get; set; } = new(1f, 0.45f, 0.2f, 1f);

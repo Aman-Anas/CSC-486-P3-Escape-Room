@@ -496,7 +496,7 @@ transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70
 Controller = NodePath("../LaserPuzzleController")
 
 [node name="MirrorSocketA6" parent="Mirrors" unique_id=1974069170 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.5, 0, 29.5)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.5, 0, 23.13604)
 Controller = NodePath("../LaserPuzzleController")
 
 [node name="MirrorSocketA7" parent="Mirrors" unique_id=1611185275 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
@@ -540,7 +540,7 @@ transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70
 Controller = NodePath("../LaserPuzzleController")
 
 [node name="MirrorBlockA6" parent="Mirrors" unique_id=703308595 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.544157, 0.5, 23.328426)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.1906033, 0.5, 27.924622)
 Controller = NodePath("../LaserPuzzleController")
 
 [node name="MirrorBlockA7" parent="Mirrors" unique_id=1552514049 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]

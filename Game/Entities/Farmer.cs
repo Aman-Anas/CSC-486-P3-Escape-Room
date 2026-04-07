@@ -339,7 +339,7 @@ public partial class Farmer : RigidBody3D
                         useKeyLabel.LabelSettings.FontColor = interactable.GetInteractionColor();
                     }
 
-                    if (Input.IsActionJustPressed(GameActions.UseDoor))
+                    if (Input.IsActionPressed(GameActions.UseDoor))
                     {
                         interactable.Interact(this);
                     }

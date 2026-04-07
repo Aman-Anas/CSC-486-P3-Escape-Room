@@ -13,7 +13,6 @@ size = Vector3(0.8, 1.7036133, 0.8)
 script = ExtResource("1_6n86s")
 BeamOrigin = NodePath("BeamOrigin")
 CollisionBody = NodePath("Body")
-RotationStepDegrees = -90.0
 
 [node name="Body" type="StaticBody3D" parent="." unique_id=779157404]
 
