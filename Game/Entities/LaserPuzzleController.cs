@@ -19,10 +19,10 @@ public partial class LaserPuzzleController : Node3D
     public Node3D BeamRoot { get; set; } = null!;
 
     [Export]
-    public int MaxBounces { get; set; } = 8;
+    public int MaxBounces { get; set; } = 800000;
 
     [Export]
-    public float MaxBeamDistance { get; set; } = 40f;
+    public float MaxBeamDistance { get; set; } = 400000f;
 
     [Export]
     public float BeamRadius { get; set; } = 0.03f;
@@ -41,10 +41,7 @@ public partial class LaserPuzzleController : Node3D
     {
         if (!IsInstanceValid(BeamRoot))
         {
-            BeamRoot = new Node3D
-            {
-                Name = "BeamSegments",
-            };
+            BeamRoot = new Node3D { Name = "BeamSegments", };
             AddChild(BeamRoot);
         }
 
@@ -154,10 +151,7 @@ public partial class LaserPuzzleController : Node3D
 
         if (IsInstanceValid(Emitter.CollisionBody))
         {
-            var exclude = new Godot.Collections.Array<Rid>
-            {
-                Emitter.CollisionBody.GetRid(),
-            };
+            var exclude = new Godot.Collections.Array<Rid> { Emitter.CollisionBody.GetRid(), };
             query.Exclude = exclude;
         }
 
@@ -252,7 +246,10 @@ public partial class LaserPuzzleController : Node3D
         var direction = (end - start).Normalized();
         var midpoint = (start + end) * 0.5f;
 
-        segment.GlobalTransform = new Transform3D(new Basis(new Quaternion(Vector3.Up, direction)), midpoint);
+        segment.GlobalTransform = new Transform3D(
+            new Basis(new Quaternion(Vector3.Up, direction)),
+            midpoint
+        );
         segment.Scale = new Vector3(BeamRadius * 2f, length, BeamRadius * 2f);
     }
 

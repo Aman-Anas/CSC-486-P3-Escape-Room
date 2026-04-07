@@ -62,7 +62,7 @@ public partial class LaserMirror : Node3D, IPlayerInteractable
             Controller.TryPickupMirror(farmer, this);
         else
         {
-            this.RotateObjectLocal(Vector3.Up, Mathf.DegToRad(5));
+            this.RotateObjectLocal(Vector3.Up, Mathf.DegToRad(0.5f));
         }
     }
 
