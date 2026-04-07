@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RuneResource" format=3 uid="uid://xrcgah46ik6r"]
+
+[ext_resource type="Texture2D" uid="uid://dmsuf4003psks" path="res://images/cipher rune 12.png" id="1_vhs8e"]
+[ext_resource type="Script" uid="uid://6wovqrspyrhp" path="res://Game/Resources/Runes/RuneResource.cs" id="2_ixrd4"]
+
+[resource]
+script = ExtResource("2_ixrd4")
+Name = "Rune 12"
+Icon = ExtResource("1_vhs8e")
+metadata/_custom_type_script = "uid://6wovqrspyrhp"
