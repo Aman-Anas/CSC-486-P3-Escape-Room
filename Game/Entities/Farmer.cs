@@ -323,7 +323,7 @@ public partial class Farmer : RigidBody3D
                         if (Input.IsActionJustPressed(GameActions.RotateLeft)) layer.RotateLeft();
                         if (Input.IsActionJustPressed(GameActions.RotateRight)) layer.RotateRight();
                     }
-                    else useKeyLabel.Text = "Cipher puzzle solved";
+                    else useKeyLabel.Text = "Puzzle has been solved!";
                     break;
 
                 default:
