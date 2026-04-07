@@ -41,7 +41,7 @@ public partial class LaserMirror : Node3D, IPlayerInteractable
 
         if (CurrentSocket != null)
         {
-            return "[e] to rotate.";
+            return "[e], [shift+e] to rotate.";
         }
 
         return "[e] pick up mirror block";
@@ -60,6 +60,10 @@ public partial class LaserMirror : Node3D, IPlayerInteractable
         }
         if (CurrentSocket == null)
             Controller.TryPickupMirror(farmer, this);
+        else if (Input.IsPhysicalKeyPressed(Key.Shift))
+        {
+            this.RotateObjectLocal(Vector3.Up, Mathf.DegToRad(-0.5f));
+        }
         else
         {
             this.RotateObjectLocal(Vector3.Up, Mathf.DegToRad(0.5f));
