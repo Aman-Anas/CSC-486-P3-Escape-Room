@@ -18,4 +18,7 @@ public static class GameActions
     public static readonly StringName PlayerFire = "fire";
 
     public static readonly StringName UseDoor = "open_door";
+    
+    public static readonly StringName RotateLeft = "rotate_left";
+    public static readonly StringName RotateRight = "rotate_right";
 }
