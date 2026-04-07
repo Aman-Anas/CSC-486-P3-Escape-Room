@@ -16,17 +16,18 @@
 [ext_resource type="Resource" uid="uid://b30u1ba2a7p40" path="res://Scenes/Entities/Door_item_red.tres" id="14_hffpc"]
 [ext_resource type="PackedScene" uid="uid://clps5spybgwyb" path="res://Scenes/Entities/Statue.tscn" id="16_rsp6l"]
 [ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="17_hffpc"]
+[ext_resource type="PackedScene" uid="uid://dshc6s2di6du1" path="res://Scenes/Entities/CipherPuzzle/CipherPuzzle.tscn" id="17_rsp6l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_3yyu3"]
+[sub_resource type="Sky" id="Sky_hffpc"]
 sky_material = SubResource("ProceduralSkyMaterial_x28rk")
 
 [sub_resource type="Environment" id="Environment_8txr7"]
 background_mode = 2
-sky = SubResource("Sky_3yyu3")
+sky = SubResource("Sky_hffpc")
 tonemap_mode = 4
 tonemap_exposure = 1.9
 tonemap_agx_white = 2.56
@@ -204,3 +205,6 @@ RequiredStatueId = "statue3"
 [node name="Pedestal4" parent="." unique_id=1940833415 instance=ExtResource("17_hffpc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1, 0.40683454, -3.6389093)
 RequiredStatueId = "statue4"
+
+[node name="CipherPuzzle" parent="." unique_id=2135199629 instance=ExtResource("17_rsp6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5846832, -0.08249903, -8.6940155)
