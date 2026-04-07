@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://b30u1ba2a7p40" path="res://Scenes/Entities/Door_item_red.tres" id="12_7atn6"]
 [ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="16_861xm"]
 [ext_resource type="PackedScene" uid="uid://clps5spybgwyb" path="res://Scenes/Entities/Statue.tscn" id="17_rwrnb"]
+[ext_resource type="PackedScene" uid="uid://bl57d1m306fu4" path="res://assets/batch_exports/newlevel/Cylinder.gltf" id="18_ecq3n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_unnmr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -136,7 +137,7 @@ transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 5.00
 transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 5.000001, 0, 27.5)
 
 [node name="Cube_0121" parent="Walls" unique_id=1164448584 instance=ExtResource("5_cq2wq")]
-transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 5.000001, 0, 30)
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 5.050001, 0, 30)
 
 [node name="Cube_0114" parent="Walls" unique_id=113857799 instance=ExtResource("5_cq2wq")]
 transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -2.9999995, 0, 23)
@@ -438,6 +439,9 @@ Info = ExtResource("9_l6rm1")
 [node name="green key" parent="Pedestal4/Statue4" unique_id=1987382438 instance=ExtResource("11_ooao5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.622995, -0.5824995, 31.758533)
 Info = ExtResource("9_arvur")
+
+[node name="Cylinder" parent="." unique_id=60518058 instance=ExtResource("18_ecq3n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -1)
 
 [editable path="Walls/FunctionalDoor"]
 [editable path="Walls/FunctionalDoor/doorframe2"]

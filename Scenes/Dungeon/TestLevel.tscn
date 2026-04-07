@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://clps5spybgwyb" path="res://Scenes/Entities/Statue.tscn" id="16_rsp6l"]
 [ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="17_hffpc"]
 [ext_resource type="PackedScene" uid="uid://dshc6s2di6du1" path="res://Scenes/Entities/CipherPuzzle/CipherPuzzle.tscn" id="17_rsp6l"]
+[ext_resource type="PackedScene" uid="uid://buev36jw6s5n" path="res://Scenes/Entities/StatueDoor.tscn" id="17_rsp6l"]
+[ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="18_hffpc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x28rk"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -46,6 +48,10 @@ uv1_triplanar = true
 size = Vector3(13.174988, 3.8506103, 2.4559937)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_x28rk"]
+
+[sub_resource type="Resource" id="Resource_djal1"]
+script = ExtResource("18_hffpc")
+metadata/_custom_type_script = "uid://fhsi0lj0y370"
 
 [node name="Level1" type="Node3D" unique_id=1866122410]
 
@@ -208,3 +214,9 @@ RequiredStatueId = "statue4"
 
 [node name="CipherPuzzle" parent="." unique_id=2135199629 instance=ExtResource("17_rsp6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5846832, -0.08249903, -8.6940155)
+
+[node name="StatueDoor" parent="." unique_id=1899975165 node_paths=PackedStringArray("DoorMesh", "animPlayer") instance=ExtResource("17_rsp6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.086723, -0.008887172, -3.80582)
+Info = SubResource("Resource_djal1")
+DoorMesh = NodePath("../CSGCombiner3D/CSGBox3D")
+animPlayer = NodePath("AnimationPlayer")
