@@ -35,25 +35,25 @@ public partial class Gun : Node3D
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionPressed(GameActions.PlayerFire) && readyToFire)
-        {
-            var newBullet = bulletScene.Instantiate<RigidBody3D>();
-            ((Bullet)newBullet).SetDamageAmount(5).SetDamageAppliesTo(DamageManager.BurgerForceName);
+        // if (Input.IsActionPressed(GameActions.PlayerFire) && readyToFire)
+        // {
+        //     var newBullet = bulletScene.Instantiate<RigidBody3D>();
+        //     ((Bullet)newBullet).SetDamageAmount(5).SetDamageAppliesTo(DamageManager.BurgerForceName);
 
-            newBullet.GlobalTransform = bulletSpawnPoint.GlobalTransform;
-            newBullet.LinearVelocity =
-                bulletSpawnPoint.GlobalBasis * new Vector3(bulletSpeed, 0, 0);
+        //     newBullet.GlobalTransform = bulletSpawnPoint.GlobalTransform;
+        //     newBullet.LinearVelocity =
+        //         bulletSpawnPoint.GlobalBasis * new Vector3(bulletSpeed, 0, 0);
 
-            GetTree().CurrentScene.AddChild(newBullet);
-            shootfx?.Play();
+        //     GetTree().CurrentScene.AddChild(newBullet);
+        //     shootfx?.Play();
 
-            // Remove the bullet after some time
-            var timer = GetTree().CreateTimer(despawnTime);
-            timer.Timeout += newBullet.QueueFree;
+        //     // Remove the bullet after some time
+        //     var timer = GetTree().CreateTimer(despawnTime);
+        //     timer.Timeout += newBullet.QueueFree;
 
-            readyToFire = false;
-            StartReload();
-        }
+        //     readyToFire = false;
+        //     StartReload();
+        // }
     }
 
     async void StartReload()
