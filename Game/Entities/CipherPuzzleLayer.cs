@@ -1,14 +1,28 @@
-using Godot;
 using System;
+using Godot;
 
+namespace Game.Entities;
+
+[GlobalClass]
 public partial class CipherPuzzleLayer : Node3D
 {
-    [Export] public CompressedTexture2D[] RuneTextures = [];
-    [Export] public Color SelectedRuneColor = new("#6d0c09");
-    [Export] public Color InactiveRuneColor = new("#000000");
-    [Export] public Color ActivatedRuneColor = new("#ffff00");
-    [Export] public float TweenTime = 0.5f;
-    [Export] public CipherPuzzle Puzzle = null!;
+    [Export]
+    public CompressedTexture2D[] RuneTextures = [];
+
+    [Export]
+    public Color SelectedRuneColor = new("#6d0c09");
+
+    [Export]
+    public Color InactiveRuneColor = new("#000000");
+
+    [Export]
+    public Color ActivatedRuneColor = new("#ffff00");
+
+    [Export]
+    public float TweenTime = 0.5f;
+
+    [Export]
+    public CipherPuzzle Puzzle = null!;
 
     public static readonly Random random = new();
     public bool AllowRotation { get; private set; } = true;
@@ -56,7 +70,8 @@ public partial class CipherPuzzleLayer : Node3D
     {
         Tween tween = CreateTween();
         float target = -(float)_rotationIndex / RuneTextures.Length * 2.0f * (float)Math.PI;
-        tween.TweenProperty(this, "rotation:y", target, TweenTime)
+        tween
+            .TweenProperty(this, "rotation:y", target, TweenTime)
             .SetTrans(Tween.TransitionType.Quart)
             .SetEase(Tween.EaseType.Out);
     }
@@ -94,7 +109,8 @@ public partial class CipherPuzzleLayer : Node3D
     public void SetRuneColor(int index, Color color)
     {
         Tween tween = CreateTween();
-        tween.TweenProperty(_runes[index], "modulate", color, TweenTime)
+        tween
+            .TweenProperty(_runes[index], "modulate", color, TweenTime)
             .SetTrans(Tween.TransitionType.Quart)
             .SetEase(Tween.EaseType.Out);
     }
@@ -112,11 +128,7 @@ public partial class CipherPuzzleLayer : Node3D
 
             // set position
             double angle = (double)i / RuneTextures.Length * 2 * Math.PI;
-            rune.Position = new Vector3(
-                (float)Math.Sin(angle),
-                0,
-                (float)Math.Cos(angle)
-            );
+            rune.Position = new Vector3((float)Math.Sin(angle), 0, (float)Math.Cos(angle));
 
             // set rotation
             rune.Rotation = rune.Rotation with

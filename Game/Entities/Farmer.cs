@@ -300,17 +300,63 @@ public partial class Farmer : RigidBody3D
             && grappleCast.GetCollider() is Node colNode
         )
         {
+            // var interactable = GetLookedAtInteractable();
+            // GD.Print(interactable);
+
+            // if (interactable != null)
+            // {
+            //     var interactionText = interactable.GetInteractionText(this);
+
+            //     if (!string.IsNullOrEmpty(interactionText))
+            //     {
+            //         useKeyLabel.Show();
+            //         useKeyLabel.Text = interactionText;
+
+            //         if (useKeyLabel.LabelSettings != null)
+            //         {
+            //             useKeyLabel.LabelSettings.FontColor = interactable.GetInteractionColor();
+            //         }
+
+            //         if (Input.IsActionJustPressed(GameActions.UseDoor))
+            //         {
+            //             interactable.Interact(this);
+            //         }
+            //     }
+            //     else
+            //     {
+            //         useKeyLabel.Hide();
+            //     }
+            // }
+
             switch (colNode.Owner)
             {
+                case IPlayerInteractable interactable:
+                    useKeyLabel.Show();
+                    useKeyLabel.Text = interactable.GetInteractionText(this);
+
+                    if (useKeyLabel.LabelSettings != null)
+                    {
+                        useKeyLabel.LabelSettings.FontColor = interactable.GetInteractionColor();
+                    }
+
+                    if (Input.IsActionJustPressed(GameActions.UseDoor))
+                    {
+                        interactable.Interact(this);
+                    }
+                    break;
+
                 case KeyDoor door:
                     useKeyLabel.Show();
-                    if (door.Opened) useKeyLabel.Text = $"Door is open.";
+                    if (door.Opened)
+                        useKeyLabel.Text = $"Door is open.";
                     else if (inventory.HasItem(door.RequiredKey))
                     {
                         useKeyLabel.Text = $"[e] to open door with {door.RequiredKey.Name}";
-                        if (Input.IsActionJustPressed(GameActions.UseDoor)) door.Open(inventory);
+                        if (Input.IsActionJustPressed(GameActions.UseDoor))
+                            door.Open(inventory);
                     }
-                    else useKeyLabel.Text = $"You need a {door.RequiredKey.Name} to open this door.";
+                    else
+                        useKeyLabel.Text = $"You need a {door.RequiredKey.Name} to open this door.";
                     useKeyLabel.LabelSettings.FontColor = door.RequiredKey.ItemColor;
                     break;
 
@@ -320,18 +366,19 @@ public partial class Farmer : RigidBody3D
                     if (layer.AllowRotation)
                     {
                         useKeyLabel.Text = $"[J] rotate left, [K] rotate right";
-                        if (Input.IsActionJustPressed(GameActions.RotateLeft)) layer.RotateLeft();
-                        if (Input.IsActionJustPressed(GameActions.RotateRight)) layer.RotateRight();
+                        if (Input.IsActionJustPressed(GameActions.RotateLeft))
+                            layer.RotateLeft();
+                        if (Input.IsActionJustPressed(GameActions.RotateRight))
+                            layer.RotateRight();
                     }
-                    else useKeyLabel.Text = "Puzzle has been solved!";
+                    else
+                        useKeyLabel.Text = "Puzzle has been solved!";
                     break;
 
                 default:
                     useKeyLabel.Hide();
                     break;
             }
-
-
         }
         else
         {
@@ -550,5 +597,36 @@ public partial class Farmer : RigidBody3D
         heldStatueMesh = null;
         heldStatueMaterial = null;
         GD.Print("Statue display cleared");
+    }
+
+    private IPlayerInteractable? GetLookedAtInteractable()
+    {
+        if (!grappleCast.IsColliding() || !IsInstanceValid(grappleCast.GetCollider()))
+        {
+            return null;
+        }
+
+        if (grappleCast.GetCollider() is not Node colliderNode)
+        {
+            return null;
+        }
+
+        return FindInteractableInAncestry(colliderNode);
+    }
+
+    private static IPlayerInteractable? FindInteractableInAncestry(Node? node)
+    {
+        var current = node;
+        while (current != null)
+        {
+            if (current is IPlayerInteractable interactable)
+            {
+                return interactable;
+            }
+
+            current = current.GetParent();
+        }
+
+        return null;
     }
 }

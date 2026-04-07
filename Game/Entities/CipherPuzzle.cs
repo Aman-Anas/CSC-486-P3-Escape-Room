@@ -1,12 +1,21 @@
-using Godot;
 using System;
+using Godot;
+
+namespace Game.Entities;
 
 public partial class CipherPuzzle : Node3D
 {
-    [Export] public CipherPuzzleLayer[] Layers = [];
-    [Export] public MeshInstance3D FrontMarker = null!;
-    [Export] public Color SolvedColor = new("#ffff00");
-    [Export] public Color UnsolvedColor = new("#d2241e");
+    [Export]
+    public CipherPuzzleLayer[] Layers = [];
+
+    [Export]
+    public MeshInstance3D FrontMarker = null!;
+
+    [Export]
+    public Color SolvedColor = new("#ffff00");
+
+    [Export]
+    public Color UnsolvedColor = new("#d2241e");
 
     private int[] _key = [];
 
@@ -14,11 +23,13 @@ public partial class CipherPuzzle : Node3D
     {
         for (int i = 0; i < Layers.Length; i++)
         {
-            if (Layers[i].SelectionIndex != _key[i]) return false;
+            if (Layers[i].SelectionIndex != _key[i])
+                return false;
         }
 
         // layer solved color
-        foreach (CipherPuzzleLayer layer in Layers) layer.Activate();
+        foreach (CipherPuzzleLayer layer in Layers)
+            layer.Activate();
 
         // front marker solved color
         if (FrontMarker.GetActiveMaterial(0) is StandardMaterial3D material)
@@ -42,11 +53,13 @@ public partial class CipherPuzzle : Node3D
 
         // generate key
         _key = new int[numLayers];
-        for (int i = 0; i < numLayers; i++) _key[i] = CipherPuzzleLayer.random.Next(numRunes);
+        for (int i = 0; i < numLayers; i++)
+            _key[i] = CipherPuzzleLayer.random.Next(numRunes);
         PrintKey();
 
         // randomize selection
-        foreach (CipherPuzzleLayer layer in Layers) layer.RandomizeSelection();
+        foreach (CipherPuzzleLayer layer in Layers)
+            layer.RandomizeSelection();
 
         // front marker unsolved color
         if (FrontMarker.GetActiveMaterial(0) is StandardMaterial3D material)

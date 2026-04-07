@@ -18,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://dbq228q05nvrb" path="res://Scenes/Entities/Pedestal.tscn" id="16_861xm"]
 [ext_resource type="PackedScene" uid="uid://clps5spybgwyb" path="res://Scenes/Entities/Statue.tscn" id="17_rwrnb"]
 [ext_resource type="PackedScene" uid="uid://bl57d1m306fu4" path="res://assets/batch_exports/newlevel/Cylinder.gltf" id="18_ecq3n"]
+[ext_resource type="Script" uid="uid://xmvsbo0ktcjk" path="res://Game/Entities/LaserPuzzleController.cs" id="19_axk0x"]
+[ext_resource type="PackedScene" uid="uid://dnrcan0vjoa01" path="res://Scenes/Entities/Laser/laser_emitter.tscn" id="20_rqnnm"]
+[ext_resource type="PackedScene" uid="uid://c3ekcsuysbvca" path="res://Scenes/Entities/Laser/laser_receiver.tscn" id="21_6buit"]
+[ext_resource type="PackedScene" uid="uid://bwletl21u1xpy" path="res://Scenes/Entities/Laser/laser_door.tscn" id="22_ohbpi"]
+[ext_resource type="PackedScene" uid="uid://upgf2x2gbv53" path="res://Scenes/Entities/Laser/mirror_socket.tscn" id="23_56inj"]
+[ext_resource type="PackedScene" uid="uid://c0kfgcgpcqpn7" path="res://Scenes/Entities/Laser/mirror_block.tscn" id="24_f7vci"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_unnmr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -352,6 +358,12 @@ transform = Transform3D(-0.8660255, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, -0.8
 [node name="Cube_0126" parent="Walls" unique_id=1061601238 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.96592593, 0, 0.25881898, 0, 1, 0, -0.25881898, 0, -0.96592593, -21, 0, 37)
 
+[node name="Cube_0141" parent="Walls" unique_id=2066767116 instance=ExtResource("8_f21x3")]
+transform = Transform3D(4.3711392e-08, -1, -8.940696e-08, -1.0000001, -4.371139e-08, 0, 0, 8.940696e-08, -1.0000001, -17, 4.25, 12.7)
+
+[node name="Cube_0142" parent="Walls" unique_id=1152286057 instance=ExtResource("8_f21x3")]
+transform = Transform3D(4.3711392e-08, -1, -8.940696e-08, -1.0000001, -4.371139e-08, 0, 0, 8.940696e-08, -1.0000001, -17, 5, 12.599999)
+
 [node name="Cube_0127" parent="Walls" unique_id=407311352 instance=ExtResource("8_f21x3")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, 42.526585, 0, 36.40406)
 
@@ -437,11 +449,143 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.83453, -0.5824995, 31.758
 Info = ExtResource("9_l6rm1")
 
 [node name="green key" parent="Pedestal4/Statue4" unique_id=1987382438 instance=ExtResource("11_ooao5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.622995, -0.5824995, 31.758533)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1, -1.1068348, 44.02295)
 Info = ExtResource("9_arvur")
 
 [node name="Cylinder" parent="." unique_id=60518058 instance=ExtResource("18_ecq3n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -1)
+
+[node name="Mirrors" type="Node3D" parent="." unique_id=1538022536]
+
+[node name="LaserPuzzleController" type="Node3D" parent="Mirrors" unique_id=833375681 node_paths=PackedStringArray("Emitter", "Receiver", "Door", "BeamRoot")]
+script = ExtResource("19_axk0x")
+Emitter = NodePath("../LaserEmitter")
+Receiver = NodePath("../LaserReceiver")
+Door = NodePath("../LaserDoor")
+BeamRoot = NodePath("BeamSegments")
+
+[node name="BeamSegments" type="Node3D" parent="Mirrors/LaserPuzzleController" unique_id=1055549521]
+
+[node name="LaserEmitter" parent="Mirrors" unique_id=598281519 instance=ExtResource("20_rqnnm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0.5, 23.5)
+
+[node name="LaserReceiver" parent="Mirrors" unique_id=1857446426 instance=ExtResource("21_6buit")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.5, 1.1, 12.5)
+
+[node name="LaserDoor" parent="Mirrors" unique_id=1154189529 instance=ExtResource("22_ohbpi")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.5, 0, 12.5)
+
+[node name="MirrorSocketA" parent="Mirrors" unique_id=1846915498 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 8, 0, 8.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA2" parent="Mirrors" unique_id=1950570742 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 41, 0, 14)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA3" parent="Mirrors" unique_id=969525715 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 18, 0, 26)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA4" parent="Mirrors" unique_id=1000534984 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 18.5, 0, 13.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA5" parent="Mirrors" unique_id=1720691456 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 12, 0, 29.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA6" parent="Mirrors" unique_id=1974069170 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.5, 0, 29.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA7" parent="Mirrors" unique_id=1611185275 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 12, 0, 44)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA8" parent="Mirrors" unique_id=176221555 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 29, 0, 35.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA9" parent="Mirrors" unique_id=1248999805 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -20.5, 0, 35.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA10" parent="Mirrors" unique_id=823134177 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -10.5, 0, 25)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA11" parent="Mirrors" unique_id=1272264500 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -3, 0, 30)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA12" parent="Mirrors" unique_id=1278039093 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 3, 0, 19)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA13" parent="Mirrors" unique_id=510543667 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 3.5, 0, 7.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorSocketA14" parent="Mirrors" unique_id=2069672342 node_paths=PackedStringArray("Controller") instance=ExtResource("23_56inj")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -21, 0, 7)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA" parent="Mirrors" unique_id=2108130015 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 32, 0.5, 20.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA2" parent="Mirrors" unique_id=564077943 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 30.232233, 0.5, 18.732233)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA6" parent="Mirrors" unique_id=703308595 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 6.544157, 0.5, 23.328426)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA7" parent="Mirrors" unique_id=1552514049 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -18.558134, 0.5, 24.389088)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA8" parent="Mirrors" unique_id=1522112505 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 2.3015156, 0.5, 26.863962)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA3" parent="Mirrors" unique_id=1098766040 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 28.464466, 0.5, 16.964466)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA4" parent="Mirrors" unique_id=1365307061 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 34, 0, 18.5)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA5" parent="Mirrors" unique_id=976825958 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, 31.292894, 0.5, 16.257359)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA9" parent="Mirrors" unique_id=1744554551 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, 7.2928963, 0.5, 16.257359)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA10" parent="Mirrors" unique_id=452634424 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, -5.207103, 0.5, 16.257359)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA11" parent="Mirrors" unique_id=1252791475 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 0, -5.207103, 0.5, 19.757359)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA12" parent="Mirrors" unique_id=1110125030 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -9.707102, 0.5, 19.757359)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA13" parent="Mirrors" unique_id=198755931 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, -12.535528, 0.5, 15.514719)
+Controller = NodePath("../LaserPuzzleController")
+
+[node name="MirrorBlockA14" parent="Mirrors" unique_id=1329931196 node_paths=PackedStringArray("Controller") instance=ExtResource("24_f7vci")]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, 18.577164, 0.5, 31.77817)
+Controller = NodePath("../LaserPuzzleController")
 
 [editable path="Walls/FunctionalDoor"]
 [editable path="Walls/FunctionalDoor/doorframe2"]
