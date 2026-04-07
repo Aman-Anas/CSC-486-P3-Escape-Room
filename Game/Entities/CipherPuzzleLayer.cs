@@ -4,7 +4,7 @@ using System;
 public partial class CipherPuzzleLayer : Node3D
 {
     [Export] public CompressedTexture2D[] RuneTextures = [];
-    [Export] public Color SelectedRuneColor = new("#ffff00");
+    [Export] public Color SelectedRuneColor = new("#6d0c09");
     [Export] public Color InactiveRuneColor = new("#000000");
     [Export] public Color ActivatedRuneColor = new("#ffff00");
     [Export] public float TweenTime = 0.5f;
