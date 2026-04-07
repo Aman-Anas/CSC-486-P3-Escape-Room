@@ -30,8 +30,13 @@
 [ext_resource type="Texture2D" uid="uid://bjpa1c2jnrwox" path="res://assets/PotMural.png" id="25_rqnnm"]
 [ext_resource type="PackedScene" path="res://Scenes/Entities/StatueDoor.tscn" id="29_1ggvp"]
 [ext_resource type="Script" uid="uid://fhsi0lj0y370" path="res://Game/Entities/DoorInfo.cs" id="30_77qxt"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://mf8hry3h34j7" path="res://Scenes/Entities/old/BobTrigger.tscn" id="31_joygb"]
 [ext_resource type="PackedScene" uid="uid://dbi28u8ytw1e2" path="res://Scenes/Entities/old/Bob.tscn" id="32_lcaxa"]
+=======
+[ext_resource type="PackedScene" uid="uid://dshc6s2di6du1" path="res://Scenes/Entities/CipherPuzzle/CipherPuzzle.tscn" id="25_rqnnm"]
+[ext_resource type="PackedScene" uid="uid://dvqcnrl8555db" path="res://Scenes/Entities/CipherPuzzle/RuneAnswerScroll.tscn" id="26_6buit"]
+>>>>>>> c907c7cf4a1197fcc29837b24fafdd59110b718d
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_unnmr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -692,6 +697,11 @@ texture = ExtResource("25_rqnnm")
 transform = Transform3D(-0.9995727, 0, -0.029230159, 0, 1, 0, 0.029230159, 0, -0.9995727, 9.390992, -0.008887172, -2.7647142)
 Info = SubResource("Resource_djal1")
 animPlayer = NodePath("AnimationPlayer")
+[node name="CipherPuzzle" parent="." unique_id=2135199629 instance=ExtResource("25_rqnnm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11.137773, -0.0009999275, 1.1286255)
+
+[node name="RuneAnswerScroll" parent="." unique_id=1567666829 instance=ExtResource("26_6buit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3647897, -0.0009999275, 3.8175712)
 
 [node name="BobTrigger" parent="." unique_id=760553805 instance=ExtResource("31_joygb")]
 transform = Transform3D(-7.9965816, 0, -0.23384127, 0, 8, 0, 0.23384127, 0, -7.9965816, -19.824476, -0.34493876, -12.239142)

@@ -26,7 +26,7 @@ radius = 1.0
 
 [node name="CipherPuzzleLayer" type="Node3D" unique_id=424869640]
 script = ExtResource("1_k72cm")
-RuneTextures = Array[CompressedTexture2D]([ExtResource("2_ap07t"), ExtResource("3_ri0xu"), ExtResource("4_vv3xd"), ExtResource("5_1i1j5"), ExtResource("6_vucbf"), ExtResource("7_w4ij5"), ExtResource("8_ks2rl"), ExtResource("9_1lmt8"), ExtResource("10_4vgwv"), ExtResource("11_88yci"), ExtResource("12_hme2h"), ExtResource("13_yan4h")])
+RuneTextures = [ExtResource("2_ap07t"), ExtResource("3_ri0xu"), ExtResource("4_vv3xd"), ExtResource("5_1i1j5"), ExtResource("6_vucbf"), ExtResource("7_w4ij5"), ExtResource("8_ks2rl"), ExtResource("9_1lmt8"), ExtResource("10_4vgwv"), ExtResource("11_88yci"), ExtResource("12_hme2h"), ExtResource("13_yan4h")]
 SelectedRuneColor = Color(0.42562586, 0.04829821, 0.034757238, 1)
 
 [node name="cylinder" type="MeshInstance3D" parent="." unique_id=395839879]
