@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cfls41uebm78j" path="res://assets/mats/test_material.tres" id="1_wkc3p"]
 [ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/old/Farmer.tscn" id="2_8rh71"]
-[ext_resource type="PackedScene" uid="uid://dshc6s2di6du1" path="res://Scenes/Entities/CipherPuzzle.tscn" id="3_7hlxx"]
+[ext_resource type="PackedScene" uid="uid://dshc6s2di6du1" path="res://Scenes/Entities/CipherPuzzle/CipherPuzzle.tscn" id="3_7hlxx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8rh71"]
 size = Vector3(18.807495, 0.63586426, 15.393494)
