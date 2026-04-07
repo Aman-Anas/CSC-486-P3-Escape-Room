@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dshc6s2di6du1"]
+
+[ext_resource type="Material" uid="uid://bqojwc168v4eo" path="res://assets/batch_exports/dungeonwalls/Dungeonwall.tres" id="1_2e2hv"]
+[ext_resource type="Script" uid="uid://b00lb3qsfitpy" path="res://Game/Entities/CipherPuzzle.cs" id="1_awfqu"]
+[ext_resource type="PackedScene" uid="uid://cl5j868uaep2" path="res://Scenes/Entities/CipherPuzzle/CipherPuzzleLayer.tscn" id="3_ai3wv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qyvas"]
+
+[node name="CipherPuzzle" type="Node3D" unique_id=2135199629]
+script = ExtResource("1_awfqu")
+
+[node name="base" type="MeshInstance3D" parent="." unique_id=447850345]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_qyvas")
+surface_material_override/0 = ExtResource("1_2e2hv")
+
+[node name="layer 1" parent="." unique_id=424869640 instance=ExtResource("3_ai3wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1078905, 0)
+
+[node name="layer 2" parent="." unique_id=170025576 instance=ExtResource("3_ai3wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3206593, 0)
+
+[node name="layer 3" parent="." unique_id=644140080 instance=ExtResource("3_ai3wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5334281, 0)
+
+[node name="layer 4" parent="." unique_id=739109336 instance=ExtResource("3_ai3wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7461969, 0)
+
+[node name="layer 5" parent="." unique_id=1856138497 instance=ExtResource("3_ai3wv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9589657, 0)

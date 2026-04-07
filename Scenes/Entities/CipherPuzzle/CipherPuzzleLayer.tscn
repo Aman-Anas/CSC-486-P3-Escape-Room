@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cl5j868uaep2"]
+
+[ext_resource type="Material" uid="uid://bf1ac1avi82pp" path="res://Game/Resources/cipher_layer_material.tres" id="1_kdakn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ap07t"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.2
+
+[node name="CipherPuzzleLayer" type="Node3D" unique_id=424869640]
+
+[node name="cylinder" type="MeshInstance3D" parent="." unique_id=395839879]
+mesh = SubResource("CylinderMesh_ap07t")
+surface_material_override/0 = ExtResource("1_kdakn")
