@@ -8,9 +8,10 @@ public partial class CipherPuzzleLayer : Node3D
     [Export] public Color InactiveRuneColor = new("#000000");
     [Export] public Color ActivatedRuneColor = new("#ffff00");
     [Export] public float TweenTime = 0.5f;
+    [Export] public CipherPuzzle Puzzle = null!;
 
     public static readonly Random random = new();
-    private bool AllowRotation = true;
+    public bool AllowRotation { get; private set; } = true;
 
     private int _rotationIndex = 0;
     public int SelectionIndex { get; private set; } = 0;
@@ -21,11 +22,11 @@ public partial class CipherPuzzleLayer : Node3D
         SelectionIndex = random.Next(RuneTextures.Length);
         _rotationIndex = SelectionIndex;
         DoRotation();
-        ActivateRune(SelectionIndex);
+        SelectRune(SelectionIndex);
         return SelectionIndex;
     }
 
-    public void ActivateRune(int index)
+    public void SelectRune(int index)
     {
         SetRuneColor(index, SelectedRuneColor);
     }
@@ -35,8 +36,9 @@ public partial class CipherPuzzleLayer : Node3D
         SetRuneColor(index, InactiveRuneColor);
     }
 
-    public void CorrectRune()
+    public void Activate()
     {
+        AllowRotation = false;
         SetRuneColor(SelectionIndex, ActivatedRuneColor);
     }
 
@@ -67,8 +69,10 @@ public partial class CipherPuzzleLayer : Node3D
         DeactivateRune(SelectionIndex);
         SelectionIndex++;
         ClampSelected();
-        ActivateRune(SelectionIndex);
+        SelectRune(SelectionIndex);
         PrintSelected();
+
+        Puzzle.Check();
     }
 
     public void RotateRight()
@@ -79,8 +83,10 @@ public partial class CipherPuzzleLayer : Node3D
         DeactivateRune(SelectionIndex);
         SelectionIndex--;
         ClampSelected();
-        ActivateRune(SelectionIndex);
+        SelectRune(SelectionIndex);
         PrintSelected();
+
+        Puzzle.Check();
     }
 
     private Sprite3D[] _runes = [];
