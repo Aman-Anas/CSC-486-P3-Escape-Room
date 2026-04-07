@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dshc6s2di6du1"]
+
+[ext_resource type="Material" uid="uid://bqojwc168v4eo" path="res://assets/batch_exports/dungeonwalls/Dungeonwall.tres" id="1_2e2hv"]
+[ext_resource type="Material" uid="uid://bf1ac1avi82pp" path="res://Game/Resources/cipher_layer_material.tres" id="1_s0rl6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qyvas"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_qyvas"]
+
+[node name="CipherPuzzle" type="Node3D" unique_id=2135199629]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=758769517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1210623, 0)
+mesh = SubResource("CylinderMesh_qyvas")
+surface_material_override/0 = ExtResource("1_s0rl6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=549362194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.363384, 0)
+mesh = SubResource("CylinderMesh_qyvas")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = ExtResource("1_s0rl6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=361568449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6057057, 0)
+mesh = SubResource("CylinderMesh_qyvas")
+skeleton = NodePath("../MeshInstance3D2")
+surface_material_override/0 = ExtResource("1_s0rl6")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=634623895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8480275, 0)
+mesh = SubResource("CylinderMesh_qyvas")
+skeleton = NodePath("../MeshInstance3D3")
+surface_material_override/0 = ExtResource("1_s0rl6")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=258916504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0903492, 0)
+mesh = SubResource("CylinderMesh_qyvas")
+skeleton = NodePath("../MeshInstance3D4")
+surface_material_override/0 = ExtResource("1_s0rl6")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=447850345]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_qyvas")
+surface_material_override/0 = ExtResource("1_2e2hv")
