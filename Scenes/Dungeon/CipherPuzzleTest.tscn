@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://cfls41uebm78j" path="res://assets/mats/test_material.tres" id="1_wkc3p"]
 [ext_resource type="PackedScene" uid="uid://cgv3ggu25ffs1" path="res://Scenes/Entities/old/Farmer.tscn" id="2_8rh71"]
 [ext_resource type="PackedScene" uid="uid://dshc6s2di6du1" path="res://Scenes/Entities/CipherPuzzle/CipherPuzzle.tscn" id="3_7hlxx"]
+[ext_resource type="PackedScene" uid="uid://bs0xy5r7f2xr0" path="res://Scenes/Entities/KeyDoor.tscn" id="4_1v7tc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8rh71"]
 size = Vector3(18.807495, 0.63586426, 15.393494)
@@ -51,3 +52,6 @@ shadow_enabled = true
 
 [node name="CipherPuzzle" parent="." unique_id=2135199629 instance=ExtResource("3_7hlxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23564553, 0.13586378, -0.21307647)
+
+[node name="KeyDoor" parent="." unique_id=962990637 instance=ExtResource("4_1v7tc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6732163, 0.13586378, -5.3105516)
