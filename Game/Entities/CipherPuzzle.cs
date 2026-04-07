@@ -16,8 +16,9 @@ public partial class CipherPuzzle : Node3D
 
     [Export]
     public Color UnsolvedColor = new("#d2241e");
-    
-    [Export] public int[] PredefinedKey = new int[7] { 4, 11, 8, 9, 0, 10, 4 };
+
+    [Export]
+    public int[] PredefinedKey = new int[7] { 4, 11, 8, 9, 0, 10, 4 };
 
     private int[] _key = [];
 
@@ -39,6 +40,9 @@ public partial class CipherPuzzle : Node3D
             material.EmissionEnabled = true;
             material.AlbedoColor = new("#777777");
         }
+
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+        GetTree().ChangeSceneToFile("uid://dpnuxxgi5fhdh");
 
         return true;
     }

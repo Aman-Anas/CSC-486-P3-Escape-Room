@@ -10,6 +10,7 @@
 friction = 0.21
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lapoy"]
+radius = 0.4
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_nafxl"]
 viewport_path = NodePath("SubViewport")
@@ -36,7 +37,7 @@ libraries/UAL1_Standard = ExtResource("1_b8pc6")
 [node name="BobRig2" parent="." unique_id=309617028 instance=ExtResource("1_1vcd5")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="BobRig2/BobRig" parent_id_path=PackedInt32Array(309617028, 1937517773) index="0" unique_id=11169179]
+[node name="GeneralSkeleton" parent="BobRig2/BobRig" parent_id_path=PackedInt32Array(309617028, 1932986107) index="0" unique_id=297884844]
 bones/1/position = Vector3(0, 0.91300416, -0.04989806)
 bones/1/rotation = Quaternion(2.682209e-07, 0, 0, 1)
 bones/3/rotation = Quaternion(-1.4528631e-07, 0, 0, 1)
@@ -68,7 +69,7 @@ bone_idx = 15
 [node name="weapon_0012" parent="BobRig2/BobRig/GeneralSkeleton/BoneAttachment3D" unique_id=513473103 instance=ExtResource("3_yxp7o")]
 transform = Transform3D(0.23210526, 0.6656728, 0.0056458213, -0.6656465, 0.23215283, -0.006687158, -0.0081732655, -0.0031290741, 0.7049456, 0.03306853, 0.10972894, 0.021598017)
 
-[node name="AnimationPlayer" parent="BobRig2" index="1" unique_id=2115114905]
+[node name="AnimationPlayer" parent="BobRig2" index="1" unique_id=2051641609]
 process_mode = 4
 active = false
 
